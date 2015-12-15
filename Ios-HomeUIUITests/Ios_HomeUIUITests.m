@@ -2,7 +2,7 @@
 //  Ios_HomeUIUITests.m
 //  Ios-HomeUIUITests
 //
-//  Created by OEFFECT on 15/12/15.
+//  Created by JiaPenghui on 15/12/15.
 //  Copyright © 2015年 jph. All rights reserved.
 //
 

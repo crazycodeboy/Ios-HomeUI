@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98F309C01C2018160066A5C3"
+               BlueprintIdentifier = "98F309FF1C2019520066A5C3"
                BuildableName = "Ios-HomeUI.app"
                BlueprintName = "Ios-HomeUI"
                ReferencedContainer = "container:Ios-HomeUI.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98F309D91C2018160066A5C3"
+               BlueprintIdentifier = "98F30A181C2019520066A5C3"
                BuildableName = "Ios-HomeUITests.xctest"
                BlueprintName = "Ios-HomeUITests"
                ReferencedContainer = "container:Ios-HomeUI.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98F309E41C2018160066A5C3"
+               BlueprintIdentifier = "98F30A231C2019520066A5C3"
                BuildableName = "Ios-HomeUIUITests.xctest"
                BlueprintName = "Ios-HomeUIUITests"
                ReferencedContainer = "container:Ios-HomeUI.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98F309C01C2018160066A5C3"
+            BlueprintIdentifier = "98F309FF1C2019520066A5C3"
             BuildableName = "Ios-HomeUI.app"
             BlueprintName = "Ios-HomeUI"
             ReferencedContainer = "container:Ios-HomeUI.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98F309C01C2018160066A5C3"
+            BlueprintIdentifier = "98F309FF1C2019520066A5C3"
             BuildableName = "Ios-HomeUI.app"
             BlueprintName = "Ios-HomeUI"
             ReferencedContainer = "container:Ios-HomeUI.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98F309C01C2018160066A5C3"
+            BlueprintIdentifier = "98F309FF1C2019520066A5C3"
             BuildableName = "Ios-HomeUI.app"
             BlueprintName = "Ios-HomeUI"
             ReferencedContainer = "container:Ios-HomeUI.xcodeproj">
