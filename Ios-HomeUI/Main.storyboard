@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="41" y="-1790"/>
         </scene>
-        <!--New Order View Controller-->
+        <!--View Controller-->
         <scene sceneID="tF8-6m-juc">
             <objects>
-                <viewController storyboardIdentifier="sb_new" id="WqD-te-XMm" customClass="NewOrderViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_new" id="WqD-te-XMm" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y3G-It-UME"/>
                         <viewControllerLayoutGuide type="bottom" id="NSN-mY-Jmb"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="709" y="-1778"/>
         </scene>
-        <!--Draw Up View Controller-->
+        <!--View Controller-->
         <scene sceneID="QW8-xD-Tkg">
             <objects>
-                <viewController storyboardIdentifier="sb_draw" id="U7K-fy-WgZ" customClass="DrawUpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_draw" id="U7K-fy-WgZ" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YmG-pe-Ptz"/>
                         <viewControllerLayoutGuide type="bottom" id="7bh-7t-dBs"/>
@@ -520,10 +520,10 @@
             </objects>
             <point key="canvasLocation" x="1329" y="-2452"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--View Controller-->
         <scene sceneID="oeB-MN-pOw">
             <objects>
-                <viewController storyboardIdentifier="sb_sign" id="L1s-eR-aK7" customClass="SignInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_sign" id="L1s-eR-aK7" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0qb-bJ-zgn"/>
                         <viewControllerLayoutGuide type="bottom" id="ysn-zu-Jh7"/>
@@ -558,10 +558,10 @@
             </objects>
             <point key="canvasLocation" x="718" y="-2452"/>
         </scene>
-        <!--For Fetch View Controller-->
+        <!--View Controller-->
         <scene sceneID="HaT-K6-Lv4">
             <objects>
-                <viewController storyboardIdentifier="sb_fetch" id="4qS-3n-f4i" customClass="ForFetchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_fetch" id="4qS-3n-f4i" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E0E-Dv-6o9"/>
                         <viewControllerLayoutGuide type="bottom" id="uIG-dG-cxm"/>

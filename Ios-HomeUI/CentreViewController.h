@@ -8,33 +8,17 @@
 
 
 #import <UIKit/UIKit.h>
-
-//#import "ZBarSDK.h"
 #import <CoreLocation/CoreLocation.h>
-
-//#import "scanViewController2.h"
-
+#import "ViewController.h"
 @class MainViewController;
-@class NewOrderViewController;
-@class ForFetchViewController;
-@class DrawUpViewController;
-@class SignInViewController;
-
 @interface CentreViewController : UIViewController</*ZBarReaderDelegate,*/CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
-
-//input
 @property(nonatomic,strong) MainViewController *mainViewContor;
 
-@property(nonatomic,strong) NewOrderViewController *rightViewContor1;
-@property(nonatomic,strong) ForFetchViewController *rightViewContor2;
-@property(nonatomic,strong) DrawUpViewController *rightViewContor3;
-@property(nonatomic,strong) SignInViewController *rightViewContor4;
-
-//@property(nonatomic,strong) scanViewController2 *addContor;
-
+@property(nonatomic,strong)ViewController *rightViewContor1;
+@property(nonatomic,strong) ViewController *rightViewContor2;
+@property(nonatomic,strong) ViewController *rightViewContor3;
+@property(nonatomic,strong) ViewController *rightViewContor4;
 @property(nonatomic,assign) NSInteger clickIndex;
-
-@property(nonatomic,strong)IBOutlet UIImageView *naviTittleView;  //tag 2:添加 ;  tag 3:setting
 @property(nonatomic,strong)IBOutlet UIView *upView;
 @property(nonatomic,strong)IBOutlet UIView *bottomView;
 @property(nonatomic,strong)IBOutlet UIView *rightView1;
@@ -56,11 +40,7 @@
 
 
 -(void)initUIView;
--(void)initNaiv;
 -(void)tabBarImage:(int)stly;
 -(IBAction)doBtnAction:(UIButton *)sender;
 -(void)m_setRight2Lbl:(int)count index:(int)index;
--(void)scan;
--(void)flashAll;
-
 @end

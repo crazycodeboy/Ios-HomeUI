@@ -1,15 +1,10 @@
-//  Ios-HomeUI
-//
-//  Created by JiaPenghui on 15/12/15.
-//  Copyright © 2015年 jph. All rights reserved.
-//
 
 #import "CentreViewController.h"
 #import "AppDelegate.h"
-#import "NewOrderViewController.h"
-#import "ForFetchViewController.h"
-#import "DrawUpViewController.h"
-#import "SignInViewController.h"
+//#import "NewOrderViewController.h"
+//#import "ForFetchViewController.h"
+//#import "DrawUpViewController.h"
+//#import "SignInViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVCaptureDevice.h>
 @interface CentreViewController ()
@@ -29,8 +24,6 @@
 @synthesize rightViewContor3;
 @synthesize rightViewContor4;
 @synthesize clickIndex;
-
-@synthesize naviTittleView;
 @synthesize upView;
 @synthesize bottomView;
 @synthesize rightView1;
@@ -56,12 +49,9 @@
     // Do any additional setup after loading the view from its nib.
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     clickIndex = -1;
-    
     self.isFirst = YES;
-    [self initNaiv];
-}
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -79,40 +69,6 @@
         [self initUIView];
     }
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-
--(void)initNaiv
-{
-    UIButton *leftNaviBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftNaviBtn.tag = 3;
-    leftNaviBtn.frame = CGRectMake(0, 0, 44, 44);
-    [leftNaviBtn setImage:[UIImage imageNamed:@"导航菜单.png"] forState:UIControlStateNormal];
-    [leftNaviBtn setImage:[UIImage imageNamed:@"导航菜单-选中.png"] forState:UIControlStateHighlighted];
-    [leftNaviBtn addTarget:self action:@selector(doBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-//    APPDELEGATE.naviBarWitd = -15;
-//    [APPDELEGATE setNaviGationItem:self isLeft:YES button:leftNaviBtn];
-    
-    UIButton *rightNaviBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightNaviBtn.tag = 2;
-    rightNaviBtn.frame = CGRectMake(0, 0, 22, 22);
-    [rightNaviBtn setImage:[UIImage imageNamed:@"首页扫描.png"] forState:UIControlStateNormal];
-    [rightNaviBtn addTarget:self action:@selector(scan) forControlEvents:UIControlEventTouchUpInside];
-//    APPDELEGATE.naviBarWitd = -1;
-//    [APPDELEGATE setNaviGationItem:self isLeft:NO button:rightNaviBtn];
-    
-    self.navigationItem.titleView = self.naviTittleView;
-}
-
 -(void)initUIView
 {
     self.rightLbl22.layer.cornerRadius = self.rightLbl22.frame.size.height;
@@ -206,18 +162,7 @@
 
 - (IBAction)doBtnAction:(UIButton *)sender
 {
-    if (sender.tag == 1)
-    {
-        [self scan];
-    }
-    else if (sender.tag == 2)
-    {
-//        addContor = nil;
-//        addContor = [[scanViewController2 alloc] initWithNibName:@"scanViewController2" bundle:nil];
-//        UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:addContor];
-//        [self.mainViewContor m_prsentViewContor:nv];
-    }
-    else if (sender.tag == 3)
+  if (sender.tag == 3)
     {
         
         if (self.mainViewContor.rightView.frame.origin.x > 0)

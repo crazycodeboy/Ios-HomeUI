@@ -19,10 +19,6 @@
 		F4E772D31C201A51002D8C33 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CD1C201A51002D8C33 /* MenuViewController.m */; };
 		F4E772D41C201A51002D8C33 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CF1C201A51002D8C33 /* MainTableViewController.m */; };
 		F4E772D51C201A51002D8C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E772D01C201A51002D8C33 /* Main.storyboard */; };
-		F4E772D81C201A8A002D8C33 /* NewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772D71C201A8A002D8C33 /* NewOrderViewController.m */; };
-		F4E772DB1C201A91002D8C33 /* ForFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772DA1C201A91002D8C33 /* ForFetchViewController.m */; };
-		F4E772DE1C201A97002D8C33 /* DrawUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772DD1C201A97002D8C33 /* DrawUpViewController.m */; };
-		F4E772E11C201A9D002D8C33 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772E01C201A9D002D8C33 /* SignInViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,14 +63,6 @@
 		F4E772CE1C201A51002D8C33 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		F4E772CF1C201A51002D8C33 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		F4E772D01C201A51002D8C33 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		F4E772D61C201A8A002D8C33 /* NewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderViewController.h; sourceTree = "<group>"; };
-		F4E772D71C201A8A002D8C33 /* NewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderViewController.m; sourceTree = "<group>"; };
-		F4E772D91C201A91002D8C33 /* ForFetchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForFetchViewController.h; sourceTree = "<group>"; };
-		F4E772DA1C201A91002D8C33 /* ForFetchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForFetchViewController.m; sourceTree = "<group>"; };
-		F4E772DC1C201A97002D8C33 /* DrawUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawUpViewController.h; sourceTree = "<group>"; };
-		F4E772DD1C201A97002D8C33 /* DrawUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawUpViewController.m; sourceTree = "<group>"; };
-		F4E772DF1C201A9D002D8C33 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
-		F4E772E01C201A9D002D8C33 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,14 +113,6 @@
 		98F30A021C2019520066A5C3 /* Ios-HomeUI */ = {
 			isa = PBXGroup;
 			children = (
-				F4E772DF1C201A9D002D8C33 /* SignInViewController.h */,
-				F4E772E01C201A9D002D8C33 /* SignInViewController.m */,
-				F4E772DC1C201A97002D8C33 /* DrawUpViewController.h */,
-				F4E772DD1C201A97002D8C33 /* DrawUpViewController.m */,
-				F4E772D91C201A91002D8C33 /* ForFetchViewController.h */,
-				F4E772DA1C201A91002D8C33 /* ForFetchViewController.m */,
-				F4E772D61C201A8A002D8C33 /* NewOrderViewController.h */,
-				F4E772D71C201A8A002D8C33 /* NewOrderViewController.m */,
 				F4E772C81C201A51002D8C33 /* MainViewController.h */,
 				F4E772C91C201A51002D8C33 /* MainViewController.m */,
 				F4E772CA1C201A51002D8C33 /* CentreViewController.h */,
@@ -314,15 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F43398C41C202B880092A759 /* AppDelegate.m in Sources */,
-				F4E772D81C201A8A002D8C33 /* NewOrderViewController.m in Sources */,
 				F4E772D21C201A51002D8C33 /* CentreViewController.m in Sources */,
 				F4E772D31C201A51002D8C33 /* MenuViewController.m in Sources */,
-				F4E772DE1C201A97002D8C33 /* DrawUpViewController.m in Sources */,
-				F4E772E11C201A9D002D8C33 /* SignInViewController.m in Sources */,
 				F4E772D41C201A51002D8C33 /* MainTableViewController.m in Sources */,
 				98F30A0B1C2019520066A5C3 /* ViewController.m in Sources */,
 				98F30A051C2019520066A5C3 /* main.m in Sources */,
-				F4E772DB1C201A91002D8C33 /* ForFetchViewController.m in Sources */,
 				F4E772D11C201A51002D8C33 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
