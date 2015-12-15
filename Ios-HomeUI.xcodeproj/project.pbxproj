@@ -13,6 +13,7 @@
 		98F30A131C2019520066A5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F30A111C2019520066A5C3 /* LaunchScreen.storyboard */; };
 		98F30A1E1C2019520066A5C3 /* Ios_HomeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F30A1D1C2019520066A5C3 /* Ios_HomeUITests.m */; };
 		98F30A291C2019520066A5C3 /* Ios_HomeUIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F30A281C2019520066A5C3 /* Ios_HomeUIUITests.m */; };
+		F43398C41C202B880092A759 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F43398C31C202B880092A759 /* AppDelegate.m */; };
 		F4E772D11C201A51002D8C33 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772C91C201A51002D8C33 /* MainViewController.m */; };
 		F4E772D21C201A51002D8C33 /* CentreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CB1C201A51002D8C33 /* CentreViewController.m */; };
 		F4E772D31C201A51002D8C33 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CD1C201A51002D8C33 /* MenuViewController.m */; };
@@ -22,7 +23,6 @@
 		F4E772DB1C201A91002D8C33 /* ForFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772DA1C201A91002D8C33 /* ForFetchViewController.m */; };
 		F4E772DE1C201A97002D8C33 /* DrawUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772DD1C201A97002D8C33 /* DrawUpViewController.m */; };
 		F4E772E11C201A9D002D8C33 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772E01C201A9D002D8C33 /* SignInViewController.m */; };
-		F4E772E51C201CF8002D8C33 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4E772E41C201CF8002D8C33 /* AppDelegate.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +56,8 @@
 		98F30A241C2019520066A5C3 /* Ios-HomeUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ios-HomeUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F30A281C2019520066A5C3 /* Ios_HomeUIUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ios_HomeUIUITests.m; sourceTree = "<group>"; };
 		98F30A2A1C2019520066A5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F43398C21C202B830092A759 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F43398C31C202B880092A759 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F4E772C81C201A51002D8C33 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		F4E772C91C201A51002D8C33 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		F4E772CA1C201A51002D8C33 /* CentreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentreViewController.h; sourceTree = "<group>"; };
@@ -73,9 +75,6 @@
 		F4E772DD1C201A97002D8C33 /* DrawUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawUpViewController.m; sourceTree = "<group>"; };
 		F4E772DF1C201A9D002D8C33 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		F4E772E01C201A9D002D8C33 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
-		F4E772E21C201B43002D8C33 /* DEFINE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DEFINE.h; sourceTree = "<group>"; };
-		F4E772E31C201CF8002D8C33 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		F4E772E41C201CF8002D8C33 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +144,6 @@
 				F4E772D01C201A51002D8C33 /* Main.storyboard */,
 				98F30A091C2019520066A5C3 /* ViewController.h */,
 				98F30A0A1C2019520066A5C3 /* ViewController.m */,
-				F4E772E21C201B43002D8C33 /* DEFINE.h */,
 				98F30A0F1C2019520066A5C3 /* Assets.xcassets */,
 				98F30A031C2019520066A5C3 /* Supporting Files */,
 			);
@@ -155,8 +153,8 @@
 		98F30A031C2019520066A5C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F4E772E31C201CF8002D8C33 /* AppDelegate.h */,
-				F4E772E41C201CF8002D8C33 /* AppDelegate.mm */,
+				F43398C21C202B830092A759 /* AppDelegate.h */,
+				F43398C31C202B880092A759 /* AppDelegate.m */,
 				98F30A111C2019520066A5C3 /* LaunchScreen.storyboard */,
 				98F30A141C2019520066A5C3 /* Info.plist */,
 				98F30A041C2019520066A5C3 /* main.m */,
@@ -315,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43398C41C202B880092A759 /* AppDelegate.m in Sources */,
 				F4E772D81C201A8A002D8C33 /* NewOrderViewController.m in Sources */,
 				F4E772D21C201A51002D8C33 /* CentreViewController.m in Sources */,
 				F4E772D31C201A51002D8C33 /* MenuViewController.m in Sources */,
@@ -322,7 +321,6 @@
 				F4E772E11C201A9D002D8C33 /* SignInViewController.m in Sources */,
 				F4E772D41C201A51002D8C33 /* MainTableViewController.m in Sources */,
 				98F30A0B1C2019520066A5C3 /* ViewController.m in Sources */,
-				F4E772E51C201CF8002D8C33 /* AppDelegate.mm in Sources */,
 				98F30A051C2019520066A5C3 /* main.m in Sources */,
 				F4E772DB1C201A91002D8C33 /* ForFetchViewController.m in Sources */,
 				F4E772D11C201A51002D8C33 /* MainViewController.m in Sources */,

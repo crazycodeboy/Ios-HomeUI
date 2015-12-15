@@ -1,10 +1,11 @@
 //
 //  NewOrderViewController.h
-//  ksudi
+//  Ios-HomeUI
 //
-//  Created by Krisc.Zampono on 14/12/19.
-//  Copyright (c) 2014年 com.oeffect. All rights reserved.
+//  Created by JiaPenghui on 15/12/15.
+//  Copyright © 2015年 jph. All rights reserved.
 //
+
 
 #import <UIKit/UIKit.h>
 #import <UIKit/UIViewController.h>

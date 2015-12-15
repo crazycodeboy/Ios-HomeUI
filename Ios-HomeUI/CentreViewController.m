@@ -1,30 +1,17 @@
+//  Ios-HomeUI
 //
-//  CentreViewController.m
-//  PartJobKsudi
-//
-//  Created by XiaoweiYang on 15/3/15.
-//  Copyright (c) 2015年 XiaoweiYang. All rights reserved.
+//  Created by JiaPenghui on 15/12/15.
+//  Copyright © 2015年 jph. All rights reserved.
 //
 
 #import "CentreViewController.h"
 #import "AppDelegate.h"
-
 #import "NewOrderViewController.h"
 #import "ForFetchViewController.h"
 #import "DrawUpViewController.h"
 #import "SignInViewController.h"
-
-//#import "MainScanViewController.h"
-
-//#import "NewOrderDetailViewController.h"
-//#import "WaitingPickDetailViewController.h"
-//#import "WaitingSignForDetailViewController.h"
-//#import "DoneDetailViewController.h"
-
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVCaptureDevice.h>
-#import "DEFINE.h"
-
 @interface CentreViewController ()
 {
 }
@@ -41,9 +28,6 @@
 @synthesize rightViewContor2;
 @synthesize rightViewContor3;
 @synthesize rightViewContor4;
-
-//@synthesize addContor;
-
 @synthesize clickIndex;
 
 @synthesize naviTittleView;
@@ -283,7 +267,7 @@
         if (index == 1)
         {
             self.rightLbl11.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [APPDELEGATE m_getWidt_str:self.rightLbl11.text m_font:self.rightLbl11.font higt:self.rightLbl11.frame.size.height]+4;
+            float widt = [self m_getWidt_str:self.rightLbl11.text m_font:self.rightLbl11.font higt:self.rightLbl11.frame.size.height]+4;
             widt = widt>self.rightView11.frame.size.width?self.rightView11.frame.size.width:widt;
             widt = widt<self.rightLbl11.frame.size.height?self.rightLbl11.frame.size.height:widt;
             self.rightLbl11.frame = CGRectMake((self.rightView11.frame.size.width-widt)/2+pianyi, self.rightLbl11.frame.origin.y, widt, self.rightLbl11.frame.size.height);
@@ -292,7 +276,7 @@
         else if (index == 2)
         {
             self.rightLbl22.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [APPDELEGATE m_getWidt_str:self.rightLbl22.text m_font:self.rightLbl22.font higt:self.rightLbl22.frame.size.height]+4;
+            float widt = [self m_getWidt_str:self.rightLbl22.text m_font:self.rightLbl22.font higt:self.rightLbl22.frame.size.height]+4;
             widt = widt>self.rightView22.frame.size.width?self.rightView22.frame.size.width:widt;
             widt = widt<self.rightLbl22.frame.size.height?self.rightLbl22.frame.size.height:widt;
             self.rightLbl22.frame = CGRectMake((self.rightView22.frame.size.width-widt)/2+pianyi, self.rightLbl22.frame.origin.y, widt, self.rightLbl22.frame.size.height);
@@ -301,7 +285,7 @@
         else if (index == 3)
         {
             self.rightLbl33.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [APPDELEGATE m_getWidt_str:self.rightLbl33.text m_font:self.rightLbl33.font higt:self.rightLbl33.frame.size.height]+4;
+            float widt = [self m_getWidt_str:self.rightLbl33.text m_font:self.rightLbl33.font higt:self.rightLbl33.frame.size.height]+4;
             widt = widt>self.rightView33.frame.size.width?self.rightView33.frame.size.width:widt;
             widt = widt<self.rightLbl33.frame.size.height?self.rightLbl33.frame.size.height:widt;
             self.rightLbl33.frame = CGRectMake((self.rightView33.frame.size.width-widt)/2+pianyi, self.rightLbl33.frame.origin.y, widt, self.rightLbl33.frame.size.height);
@@ -310,7 +294,7 @@
         else
         {
             self.rightLbl44.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [APPDELEGATE m_getWidt_str:self.rightLbl44.text m_font:self.rightLbl44.font higt:self.rightLbl44.frame.size.height]+4;
+            float widt = [self m_getWidt_str:self.rightLbl44.text m_font:self.rightLbl44.font higt:self.rightLbl44.frame.size.height]+4;
             widt = widt>self.rightView44.frame.size.width?self.rightView44.frame.size.width:widt;
             widt = widt<self.rightLbl44.frame.size.height?self.rightLbl44.frame.size.height:widt;
             self.rightLbl44.frame = CGRectMake((self.rightView44.frame.size.width-widt)/2+pianyi, self.rightLbl44.frame.origin.y, widt, self.rightLbl44.frame.size.height);
@@ -319,7 +303,14 @@
     }
 }
 
-
+#pragma mark - 宽高度自适应
+- (float)m_getWidt_str:(NSString *)str m_font:(UIFont *)font higt:(float)higt
+{
+    CGSize size;
+    NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil];
+    size=[str boundingRectWithSize:CGSizeMake(MAXFLOAT, higt) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
+    return size.width;
+}
 #pragma mark   scan 代理
 -(void)get_scanData2:(NSString *)expressidStr
 {

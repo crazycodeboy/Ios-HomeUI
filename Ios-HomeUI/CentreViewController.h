@@ -1,10 +1,11 @@
 //
 //  CentreViewController.h
-//  PartJobKsudi
+//  Ios-HomeUI
 //
-//  Created by XiaoweiYang on 15/3/15.
-//  Copyright (c) 2015年 XiaoweiYang. All rights reserved.
+//  Created by JiaPenghui on 15/12/15.
+//  Copyright © 2015年 jph. All rights reserved.
 //
+
 
 #import <UIKit/UIKit.h>
 
