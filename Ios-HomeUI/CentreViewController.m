@@ -2,45 +2,16 @@
 #import "CentreViewController.h"
 #import "AppDelegate.h"
 @interface CentreViewController ()
-{
-}
+{}
 @property(nonatomic, assign) float isFirst;
-
 @end
 
-
 @implementation CentreViewController
-
-@synthesize mainViewContor;
-@synthesize rightViewContor1;
-@synthesize rightViewContor2;
-@synthesize rightViewContor3;
-@synthesize rightViewContor4;
-@synthesize clickIndex;
-@synthesize upView;
-@synthesize bottomView;
-@synthesize rightView1;
-@synthesize rightView2;
-@synthesize rightView3;
-@synthesize rightView4;
-@synthesize rightView11;
-@synthesize rightLbl11;
-@synthesize rightBtn11;
-@synthesize rightView22;
-@synthesize rightLbl22;
-@synthesize rightBtn22;
-@synthesize rightView33;
-@synthesize rightLbl33;
-@synthesize rightBtn33;
-@synthesize rightView44;
-@synthesize rightLbl44;
-@synthesize rightBtn44;
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    clickIndex = -1;
+    self.clickIndex = -1;
     self.isFirst = YES;
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,25 +23,25 @@
 }
 -(void)initUIView{
     UIStoryboard*mainSb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    rightViewContor1 =[mainSb instantiateViewControllerWithIdentifier:@"sb_new"];
-    rightViewContor1.view.frame = self.rightView1.frame;
-    [self.rightView1 addSubview:self.rightViewContor1.view];
-//    [self.rightViewContor1 loadData];
+    self.rightViewContor1 =[mainSb instantiateViewControllerWithIdentifier:@"sb_new"];
+    self.rightViewContor1.view.frame = self.rightView1.frame;
+    [self.rightView1 addSubview:self.self.rightViewContor1.view];
+//    [self.self.rightViewContor1 loadData];
     
-    rightViewContor2 =[mainSb instantiateViewControllerWithIdentifier:@"sb_fetch"];
-    rightViewContor2.view.frame = self.rightView1.frame;
-    [self.rightView2 addSubview:self.rightViewContor2.view];
-//    [self.rightViewContor2 loadData];
+    self.rightViewContor2 =[mainSb instantiateViewControllerWithIdentifier:@"sb_fetch"];
+    self.rightViewContor2.view.frame = self.rightView1.frame;
+    [self.rightView2 addSubview:self.self.rightViewContor2.view];
+//    [self.self.rightViewContor2 loadData];
     
-    rightViewContor3 = [mainSb instantiateViewControllerWithIdentifier:@"sb_draw"];
-    rightViewContor3.view.frame = self.rightView1.frame;
-    [self.rightView3 addSubview:self.rightViewContor3.view];
-//    [self.rightViewContor3 loadData];
+    self.rightViewContor3 = [mainSb instantiateViewControllerWithIdentifier:@"sb_draw"];
+    self.rightViewContor3.view.frame = self.rightView1.frame;
+    [self.rightView3 addSubview:self.self.rightViewContor3.view];
+//    [self.self.rightViewContor3 loadData];
     
-    rightViewContor4 = [mainSb instantiateViewControllerWithIdentifier:@"sb_sign"];;
-    rightViewContor4.view.frame = self.rightView1.frame;
-    [self.rightView4 addSubview:self.rightViewContor4.view];
-//    [self.rightViewContor4 loadData];
+    self.rightViewContor4 = [mainSb instantiateViewControllerWithIdentifier:@"sb_sign"];;
+    self.rightViewContor4.view.frame = self.rightView1.frame;
+    [self.rightView4 addSubview:self.self.rightViewContor4.view];
+//    [self.self.rightViewContor4 loadData];
     
     [self setTabBarSelectedImage:11];
     [self initTabBarIndicator];
@@ -117,29 +88,20 @@
         [self.rightBtn33 setImage:[[UIImage imageNamed:@"待进站.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn44 setImage:[[UIImage imageNamed:@"待签收（点中）.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     }
-    clickIndex = tag;
+    self.clickIndex = tag;
 }
 
 
-- (IBAction)doBtnAction:(UIButton *)sender
-{
-  if (sender.tag == 3)
-    {
-        
-        if (self.mainViewContor.rightView.frame.origin.x > 0)
-        {
+- (IBAction)doBtnAction:(UIButton *)sender{
+  if (sender.tag == 3){
+        if (self.mainViewContor.rightView.frame.origin.x > 0){
             [self.mainViewContor onSwitchWithAnimaiton:YES];
-        }
-        else
-        {
+        }else{
             [self.mainViewContor onSwitchWithAnimaiton:NO];
         }
-    }
-    else
-    {
-        if (clickIndex != sender.tag)
-        {
-            clickIndex = sender.tag;
+    }else {
+        if (self.clickIndex != sender.tag){
+            self.clickIndex = sender.tag;
             [self.mainViewContor onPageSelected:(int)sender.tag finishAnimaiton:YES];
         }
     }
