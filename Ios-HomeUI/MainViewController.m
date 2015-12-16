@@ -104,30 +104,18 @@
     [self.rightView addGestureRecognizer:panGestureRecognizer];
 }
 
--(void)m_prsentViewContor:(UIViewController*)contor
-{
-    [self presentViewController:contor animated:YES completion:nil];
-}
-
 #pragma mark - Gesture recognizers
-- (void)tapGestureRecognized:(UITapGestureRecognizer *)tapGestureRecognizer
-{
+- (void)tapGestureRecognized:(UITapGestureRecognizer *)tapGestureRecognizer{
     UIGestureRecognizerState state = tapGestureRecognizer.state;
     CGPoint location = [tapGestureRecognizer locationInView:self.view];
-    
-    switch (state)
-    {
+    switch (state) {
         case UIGestureRecognizerStateEnded:
-        {
-            if (self.rightView.frame.origin.x == self.slideSettingMax)
-            {
-                if (location.x > self.slideSettingMax)
-                {
+            if (self.rightView.frame.origin.x == self.slideSettingMax){//侧拉栏已展开
+                if (location.x > self.slideSettingMax){//单击了侧拉栏以外的位置则关闭侧拉栏
                     [self rightStatu_finishAnimaiton:YES];
                 }
             }
             break;
-        }
         default:
             break;
     }
