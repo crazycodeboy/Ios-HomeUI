@@ -77,7 +77,8 @@
 -(void)initUIView
 {
     self.slideChangeSpeed =800;
-    self.slideSettingMax = [[UIScreen mainScreen] bounds].size.width-180;
+    CGSize size= [[UIScreen mainScreen] bounds].size;
+    self.slideSettingMax=(size.width<size.height? size.width:size.height)-180;
     self.slideChangeSetting = self.slideSettingMax/2;
     self.animationTime = 0.2;
     self.slideSettingTransform_x = 0.7;
@@ -227,6 +228,7 @@
             break;
     }
 }
+#pragma mark - Menu Change
 /**
  * 打开或关闭侧边栏,带动
  * @param isClose YES 关闭，NO 打开
@@ -273,6 +275,7 @@
     //缩放侧边栏视图
     self.leftView.transform  = CGAffineTransformMakeScale(trans_x, trans_y);
 }
+#pragma mark - Page Change
 /**
  * 显示选择的页面
  * @param tag 要显示页面的标识
@@ -408,6 +411,14 @@
         }
     }
     [self onPageSelected:tag finishAnimaiton:YES ];
+}
+/**
+ * 屏幕旋转时重新计算slideSettingMax的大小
+ */
+-(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
+    CGSize size= [[UIScreen mainScreen] bounds].size;
+    self.slideSettingMax=(size.width<size.height? size.width:size.height)-180;
 }
 @end
 
