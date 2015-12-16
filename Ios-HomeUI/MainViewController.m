@@ -99,8 +99,7 @@
     self.rightView.alpha = 1;
     self.rightBackView.frame = self.rightView.frame;
     self.rightBackView.alpha = 0;
-    [self.rightBackView setHidden:YES];
-    
+    [self.rightBackView setHidden:YES];    
 
     
     self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
