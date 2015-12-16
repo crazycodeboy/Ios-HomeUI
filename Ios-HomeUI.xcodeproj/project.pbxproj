@@ -17,7 +17,6 @@
 		F4E772D11C201A51002D8C33 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772C91C201A51002D8C33 /* MainViewController.m */; };
 		F4E772D21C201A51002D8C33 /* CentreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CB1C201A51002D8C33 /* CentreViewController.m */; };
 		F4E772D31C201A51002D8C33 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CD1C201A51002D8C33 /* MenuViewController.m */; };
-		F4E772D41C201A51002D8C33 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CF1C201A51002D8C33 /* MainTableViewController.m */; };
 		F4E772D51C201A51002D8C33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E772D01C201A51002D8C33 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -60,8 +59,6 @@
 		F4E772CB1C201A51002D8C33 /* CentreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentreViewController.m; sourceTree = "<group>"; };
 		F4E772CC1C201A51002D8C33 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		F4E772CD1C201A51002D8C33 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		F4E772CE1C201A51002D8C33 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
-		F4E772CF1C201A51002D8C33 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		F4E772D01C201A51002D8C33 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,8 +116,6 @@
 				F4E772CB1C201A51002D8C33 /* CentreViewController.m */,
 				F4E772CC1C201A51002D8C33 /* MenuViewController.h */,
 				F4E772CD1C201A51002D8C33 /* MenuViewController.m */,
-				F4E772CE1C201A51002D8C33 /* MainTableViewController.h */,
-				F4E772CF1C201A51002D8C33 /* MainTableViewController.m */,
 				F4E772D01C201A51002D8C33 /* Main.storyboard */,
 				98F30A091C2019520066A5C3 /* ViewController.h */,
 				98F30A0A1C2019520066A5C3 /* ViewController.m */,
@@ -296,7 +291,6 @@
 				F43398C41C202B880092A759 /* AppDelegate.m in Sources */,
 				F4E772D21C201A51002D8C33 /* CentreViewController.m in Sources */,
 				F4E772D31C201A51002D8C33 /* MenuViewController.m in Sources */,
-				F4E772D41C201A51002D8C33 /* MainTableViewController.m in Sources */,
 				98F30A0B1C2019520066A5C3 /* ViewController.m in Sources */,
 				98F30A051C2019520066A5C3 /* main.m in Sources */,
 				F4E772D11C201A51002D8C33 /* MainViewController.m in Sources */,
