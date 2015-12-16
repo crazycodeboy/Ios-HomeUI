@@ -160,10 +160,10 @@
             }
             else if (delta < 0) {//向左滑动
                 delta = -delta;
-                if (self.rightView.frame.origin.x == 0){
+                if (self.rightView.frame.origin.x == 0){//如果侧边栏没打开，则滑动翻页页面
                     [self onPageChanging:self.right1StartX-delta];
-                }else{
-                    if (self.panGestureStartLocation.x > self.slideSettingMax){
+                }else{//侧边栏在打开状态
+                    if (self.panGestureStartLocation.x > self.slideSettingMax){//且滑动的是侧边栏以外的位置，则滑动关闭侧边栏
                         [self onSliding:self.rightStartX-delta];
                     }
                 }
@@ -172,82 +172,49 @@
         }
         case UIGestureRecognizerStateEnded:
         {
-            if(velocity.x < -self.slideChangeSpeed)
-            {
-                if (self.rightView.frame.origin.x != 0)
-                {
+            if(velocity.x < -self.slideChangeSpeed) {//向左滑动速度大于slideChangeSpeed
+                if (self.rightView.frame.origin.x != 0){//侧边栏处于打开状态则关闭侧边栏
                     [self onSwitchWithAnimaiton:YES];
+                }else{
+                    [self onPageChangedIsNeed:YES needNext:YES];
                 }
-                else
-                {
-                    [self rightSpeedSlide_isLeft:YES needNext:YES];
-                }
-            }
-            else if(velocity.x > self.slideChangeSpeed)
-            {
-                if (self.rightView.frame.origin.x != self.slideSettingMax)
-                {
-                    if (self.right1StartX == 0)
-                    {
+            }else if(velocity.x > self.slideChangeSpeed){//向右滑动速度大于slideChangeSpeed
+                if (self.rightView.frame.origin.x != self.slideSettingMax){//侧边栏不处于已打开状态
+                    if (self.right1StartX == 0){//且当前显示的是第一页，则打开侧边栏
                         [self onSwitchWithAnimaiton:NO];
-                    }
-                    else
-                    {
-                        [self rightSpeedSlide_isLeft:NO needNext:YES];
+                    }else {
+                        [self onPageChangedIsNeed:NO needNext:YES];
                     }
                 }
-            }
-            else
-            {
+            }else{
                 CGFloat delta = 0.0f;
                 delta = location.x - self.panGestureStartLocation.x;
-                if (delta > 0)
-                {
-                    if (self.right1StartX == 0)
-                    {
-                        if (delta > self.slideChangeSetting)
-                        {
+                if (delta > 0){
+                    if (self.right1StartX == 0){
+                        if (delta > self.slideChangeSetting){
                             [self onSwitchWithAnimaiton:NO];
-                        }
-                        else
-                        {
+                        }else{
                             [self onSwitchWithAnimaiton:YES];
                         }
-                    }
-                    else
-                    {
-                        if (delta < self.rightView.frame.size.width/2)
-                        {
-                            [self rightSpeedSlide_isLeft:NO needNext:NO];
-                        }
-                        else
-                        {
-                            [self rightSpeedSlide_isLeft:NO needNext:YES];
+                    }else{
+                        if (delta < self.rightView.frame.size.width/2){
+                            [self onPageChangedIsNeed:NO needNext:NO];
+                        }else{
+                            [self onPageChangedIsNeed:NO needNext:YES];
                         }
                     }
-                }
-                else if (delta < 0)
-                {
+                }else if (delta < 0){
                     NSLog(@"%f",delta);
-                    if (self.rightStartX == 0)
-                    {
-                        if (delta < -self.rightView.frame.size.width/2)
-                        {
-                            [self rightSpeedSlide_isLeft:YES needNext:YES];
+                    if (self.rightStartX == 0){
+                        if (delta < -self.rightView.frame.size.width/2){
+                            [self onPageChangedIsNeed:YES needNext:YES];
+                        }else{
+                            [self onPageChangedIsNeed:YES needNext:NO];
                         }
-                        else
-                        {
-                            [self rightSpeedSlide_isLeft:YES needNext:NO];
-                        }
-                    }
-                    else
-                    {
-                        if (self.rightView.frame.origin.x >= self.slideChangeSetting)
-                        {
+                    }else{
+                        if (self.rightView.frame.origin.x >= self.slideChangeSetting){
                             [self onSwitchWithAnimaiton:NO];
-                        }
-                        else
-                        {
+                        }else{
                             [self onSwitchWithAnimaiton:YES];
                         }
                     }
@@ -412,69 +379,46 @@
         [self changeViewHorizontalPosition:self.centreViewCtor.rightView4 rect:rect];
     }
 }
-
--(void)rightSpeedSlide_isLeft:(BOOL)flag needNext:(BOOL)isNext
-{
+/**
+ * 翻页
+ * @param flag 向左还是向右翻页
+ * @param isNext 是否需要翻页
+ **/
+-(void)onPageChangedIsNeed:(BOOL)flag needNext:(BOOL)isNext{
     float widt = self.centreViewCtor.upView.frame.size.width;
     int tag;
-    if (isNext == YES)
-    {
-        if (flag == YES)
-        {
-            if (self.right1StartX == -3*widt)
-            {
+    if (isNext == YES){
+        if (flag == YES){
+            if (self.right1StartX == -3*widt){
                 tag = 44;
                 isNext = NO;
-            }
-            else if (self.right1StartX == -2*widt)
-            {
+            }else if (self.right1StartX == -2*widt) {
                 tag = 44;
             }
-            else if (self.right1StartX == -widt)
-            {
+            else if (self.right1StartX == -widt){
                 tag = 33;
-            }
-            else
-            {
+            }else {
                 tag = 22;
             }
-        }
-        else
-        {
-            if (self.right1StartX == -3*widt)
-            {
+        }else{
+            if (self.right1StartX == -3*widt){
                 tag = 33;
-            }
-            else if (self.right1StartX == -2*widt)
-            {
+            }else if (self.right1StartX == -2*widt){
                 tag = 22;
-            }
-            else if (self.right1StartX == -widt)
-            {
+            }else if (self.right1StartX == -widt){
                 tag = 11;
-            }
-            else
-            {
+            }else{
                 tag = 11;
             }
         }
-    }
-    else
-    {
-        if (self.right1StartX == -3*widt)
-        {
+    }else{
+        if (self.right1StartX == -3*widt){
             tag = 44;
-        }
-        else if (self.right1StartX == -2*widt)
-        {
+        }else if (self.right1StartX == -2*widt){
             tag = 33;
-        }
-        else if (self.right1StartX == -widt)
-        {
+        }else if (self.right1StartX == -widt){
             tag = 22;
-        }
-        else
-        {
+        }else{
             tag = 11;
         }
     }

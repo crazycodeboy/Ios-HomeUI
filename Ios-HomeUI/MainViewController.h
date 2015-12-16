@@ -31,7 +31,7 @@
 -(void)rightMoveStatu:(int)tag finishAnimaiton:(BOOL)haveAnimation needFresh:(BOOL)fresh;
 -(void)rightMaxShow:(int)tag;
 -(void)onPageChanging:(float)x;
--(void)rightSpeedSlide_isLeft:(BOOL)flag needNext:(BOOL)isNext;
+-(void)onPageChangedIsNeed:(BOOL)flag needNext:(BOOL)isNext;
 
 
 @end
