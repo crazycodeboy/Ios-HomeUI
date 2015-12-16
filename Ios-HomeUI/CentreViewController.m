@@ -167,11 +167,11 @@
         
         if (self.mainViewContor.rightView.frame.origin.x > 0)
         {
-            [self.mainViewContor rightStatu_finishAnimaiton:YES];
+            [self.mainViewContor onSwitchWithAnimaiton:YES];
         }
         else
         {
-            [self.mainViewContor rightStatu_finishAnimaiton:NO];
+            [self.mainViewContor onSwitchWithAnimaiton:NO];
         }
     }
     else

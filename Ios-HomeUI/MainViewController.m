@@ -10,8 +10,11 @@
 @interface MainViewController ()<UIGestureRecognizerDelegate>
 
 @property(nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+//活动开始的位置
 @property(nonatomic, assign) CGPoint panGestureStartLocation;
+//滑动开始时rightView 的x点
 @property(nonatomic, assign) float rightStartX;
+//滑动开始时centerView中rightView1 的x点
 @property(nonatomic, assign) float right1StartX;
 //滑动速度
 @property(nonatomic, assign) float slideChangeSpeed;
@@ -105,6 +108,9 @@
 }
 
 #pragma mark - Gesture recognizers
+/***
+ * 单击回调
+ */
 - (void)tapGestureRecognized:(UITapGestureRecognizer *)tapGestureRecognizer{
     UIGestureRecognizerState state = tapGestureRecognizer.state;
     CGPoint location = [tapGestureRecognizer locationInView:self.view];
@@ -112,7 +118,7 @@
         case UIGestureRecognizerStateEnded:
             if (self.rightView.frame.origin.x == self.slideSettingMax){//侧拉栏已展开
                 if (location.x > self.slideSettingMax){//单击了侧拉栏以外的位置则关闭侧拉栏
-                    [self rightStatu_finishAnimaiton:YES];
+                    [self onSwitchWithAnimaiton:YES];
                 }
             }
             break;
@@ -121,14 +127,16 @@
     }
     
 }
+/**
+ * 滑动回调
+ */
 -(void)panGestureRecognized:(UIPanGestureRecognizer *)panGestureRecognizer
 {
     UIGestureRecognizerState state = panGestureRecognizer.state;
     CGPoint location = [panGestureRecognizer locationInView:self.view];
     CGPoint velocity;
     velocity = [panGestureRecognizer velocityInView:self.rightView];
-    switch (state)
-    {
+    switch (state){
         case UIGestureRecognizerStateBegan:
         {
             self.panGestureStartLocation = location;
@@ -139,24 +147,19 @@
         case UIGestureRecognizerStateChanged:
         {
             CGFloat delta = location.x - self.panGestureStartLocation.x;
-            if (delta > 0)
+            if (delta > 0)//向右滑动
             {
-                if (self.rightView.frame.origin.x < self.slideSettingMax)
-                {
-                    if (self.right1StartX >= 0)
-                    {
-                        if (delta <= self.slideSettingMax)
-                        {
+                if (self.rightView.frame.origin.x < self.slideSettingMax){//侧拉栏未展开
+                    if (self.right1StartX >= 0){//centerView中rightView1位于屏幕中（当前显示的是第一页）
+                        if (delta <= self.slideSettingMax){//如果滑动的距离小于侧拉栏展开宽度
                             [self rightSlide_x:delta];
                         }
-                    }
-                    else
-                    {
+                    }else{//当前不是第一页
                         [self rightMoveSlide_x:self.right1StartX+delta];
                     }
                 }
             }
-            else if (delta < 0)
+            else if (delta < 0)//向左滑动
             {
                 delta = -delta;
                 if (self.rightView.frame.origin.x == 0)
@@ -179,7 +182,7 @@
             {
                 if (self.rightView.frame.origin.x != 0)
                 {
-                    [self rightStatu_finishAnimaiton:YES];
+                    [self onSwitchWithAnimaiton:YES];
                 }
                 else
                 {
@@ -192,7 +195,7 @@
                 {
                     if (self.right1StartX == 0)
                     {
-                        [self rightStatu_finishAnimaiton:NO];
+                        [self onSwitchWithAnimaiton:NO];
                     }
                     else
                     {
@@ -210,11 +213,11 @@
                     {
                         if (delta > self.slideChangeSetting)
                         {
-                            [self rightStatu_finishAnimaiton:NO];
+                            [self onSwitchWithAnimaiton:NO];
                         }
                         else
                         {
-                            [self rightStatu_finishAnimaiton:YES];
+                            [self onSwitchWithAnimaiton:YES];
                         }
                     }
                     else
@@ -247,11 +250,11 @@
                     {
                         if (self.rightView.frame.origin.x >= self.slideChangeSetting)
                         {
-                            [self rightStatu_finishAnimaiton:NO];
+                            [self onSwitchWithAnimaiton:NO];
                         }
                         else
                         {
-                            [self rightStatu_finishAnimaiton:YES];
+                            [self onSwitchWithAnimaiton:YES];
                         }
                     }
                 }
@@ -263,46 +266,38 @@
             break;
     }
 }
-
-//left & right
--(void)rightStatu_finishAnimaiton:(BOOL)isRight
-{
+/**
+ * 打开或关闭侧边栏,带动
+ * @param isClose YES 关闭，NO 打开
+ **/
+-(void)onSwitchWithAnimaiton:(BOOL)isClose{
     float x;
-    if (isRight == NO)
-    {
+    if (isClose == NO){
         x = self.slideSettingMax;
-    }
-    else
-    {
+    }else{
         x = 0;
     }
-    [UIView animateWithDuration:self.animationTime delay:0 options:UIViewAnimationOptionCurveLinear animations:^
-     {
+    [UIView animateWithDuration:self.animationTime delay:0 options:UIViewAnimationOptionCurveLinear animations:^ {
          CGRect rect = self.rightView.frame;
          rect.origin.x = x;
          self.rightView.frame = rect;
          
-         if (isRight == NO)
-         {
+         if (isClose == NO) {
              self.leftView.transform  = CGAffineTransformMakeScale(1, 1);
-         }
-         else
-         {
+         }else{
              self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
          }
-     } completion:^(BOOL finished)
-     {
-         if (isRight == YES)
-         {
+     } completion:^(BOOL finished){
+         if (isClose == YES){//侧边栏关闭后移除rightView的tapGestureRecognizer检测器，以便将单击事件监听权交出
              [self.rightView removeGestureRecognizer:self.tapGestureRecognizer];
-         }
-         else
-         {
+         }else{
              [self.rightView addGestureRecognizer:self.tapGestureRecognizer];
          }
-     }
-     ];
+     } ];
 }
+/**
+ * 显示和隐藏侧边栏
+ **/
 -(void)rightSlide_x:(float)x
 {
     x = x>self.slideSettingMax?self.slideSettingMax:x;
@@ -313,9 +308,8 @@
     
     float trans_x = self.slideSettingTransform_x-(x/self.slideSettingMax)*(self.slideSettingTransform_x-1) ;
     float trans_y = self.slideSettingTransform_y+(x/self.slideSettingMax)*(1-self.slideSettingTransform_y) ;
+    //缩放侧边栏视图
     self.leftView.transform  = CGAffineTransformMakeScale(trans_x, trans_y);
-//    x = (x/self.slideSettingMax)*self.slideLeftX;
-//    x = x>self.slideLeftX?self.slideLeftX:x;
 }
 
 //right max

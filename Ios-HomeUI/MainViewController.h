@@ -26,13 +26,12 @@
 
 -(void)initUIView;
 
--(void)rightStatu_finishAnimaiton:(BOOL)isRight;
+-(void)onSwitchWithAnimaiton:(BOOL)isClose;
 -(void)rightSlide_x:(float)x;
 -(void)rightMoveStatu:(int)tag finishAnimaiton:(BOOL)haveAnimation needFresh:(BOOL)fresh;
 -(void)rightMaxShow:(int)tag;
 -(void)rightMoveSlide_x:(float)x;
 -(void)rightSpeedSlide_isLeft:(BOOL)flag needNext:(BOOL)isNext;
 
--(void)m_prsentViewContor:(UIViewController*)contor;
 
 @end
