@@ -58,10 +58,10 @@
     self.rightLbl33.layer.cornerRadius = self.rightLbl33.frame.size.height/2;
     [self.rightLbl44 setClipsToBounds:YES];
     self.rightLbl44.layer.cornerRadius = self.rightLbl44.frame.size.height/2;
-    [self setTipNum:22 lab:self.rightLbl11];
-    [self setTipNum:1 lab:self.rightLbl22];
+    [self setTipNum:0 lab:self.rightLbl11];
+    [self setTipNum:0 lab:self.rightLbl22];
     [self setTipNum:0 lab:self.rightLbl33];
-    [self setTipNum:99 lab:self.rightLbl44];
+    [self setTipNum:0 lab:self.rightLbl44];
 }
 /**
  * 设置TabBar选中时显示的图片
