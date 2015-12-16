@@ -1,12 +1,6 @@
 
 #import "CentreViewController.h"
 #import "AppDelegate.h"
-//#import "NewOrderViewController.h"
-//#import "ForFetchViewController.h"
-//#import "DrawUpViewController.h"
-//#import "SignInViewController.h"
-#import <AVFoundation/AVFoundation.h>
-#import <AVFoundation/AVCaptureDevice.h>
 @interface CentreViewController ()
 {
 }
@@ -18,7 +12,6 @@
 @implementation CentreViewController
 
 @synthesize mainViewContor;
-
 @synthesize rightViewContor1;
 @synthesize rightViewContor2;
 @synthesize rightViewContor3;
@@ -46,33 +39,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     clickIndex = -1;
     self.isFirst = YES;
-   }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
-    
-    if (self.isFirst == YES)
-    {
+    if (self.isFirst == YES){
         self.isFirst = NO;
         [self initUIView];
     }
 }
--(void)initUIView
-{
-    self.rightLbl22.layer.cornerRadius = self.rightLbl22.frame.size.height;
-    
+-(void)initUIView{
     CGRect rect = self.bottomView.frame;
     rect.origin.y = [UIScreen mainScreen].bounds.size.height-self.bottomView.frame.size.height-64;
     rect.size.width = [UIScreen mainScreen].bounds.size.width;
@@ -256,16 +234,4 @@
     size=[str boundingRectWithSize:CGSizeMake(MAXFLOAT, higt) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
     return size.width;
 }
-#pragma mark   scan 代理
--(void)get_scanData2:(NSString *)expressidStr
-{
-    
-}
-
-
-
-
-
-
-
 @end

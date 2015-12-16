@@ -8,10 +8,9 @@
 
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import "ViewController.h"
 @class MainViewController;
-@interface CentreViewController : UIViewController</*ZBarReaderDelegate,*/CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface CentreViewController : UIViewController
 @property(nonatomic,strong) MainViewController *mainViewContor;
 
 @property(nonatomic,strong)ViewController *rightViewContor1;
