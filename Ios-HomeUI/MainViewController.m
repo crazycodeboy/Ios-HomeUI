@@ -1,5 +1,5 @@
 //  Ios-HomeUI
-//
+//  首页主控制器，负责侧拉栏的显示隐藏，内容页的翻页等。
 //  Created by JiaPenghui on 15/12/15.
 //  Copyright © 2015年 jph. All rights reserved.
 //
