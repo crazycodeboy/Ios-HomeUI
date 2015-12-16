@@ -13,18 +13,18 @@
 @property(nonatomic, assign) CGPoint panGestureStartLocation;
 @property(nonatomic, assign) float rightStartX;
 @property(nonatomic, assign) float right1StartX;
-
+//滑动速度
 @property(nonatomic, assign) float slideChangeSpeed;
 @property(nonatomic, assign) float slideChangeSetting;
+//侧边栏展开大小
 @property(nonatomic, assign) float slideSettingMax;
 @property(nonatomic, assign) float slideSettingTransform_x;
 @property(nonatomic, assign) float slideSettingTransform_y;
+//侧边栏展开过程中动画持续时间，越大展开速度越慢
 @property(nonatomic, assign) float animationTime;
 @property(nonatomic, assign) float slideLeftX;
 @property(nonatomic, assign) float slideAlpha;
-
 @property(nonatomic, assign) float isFirst;
-
 @end
 
 
@@ -40,9 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     self.isFirst = YES;
-    
     
     self.rightView.layer.shadowColor = [UIColor blackColor].CGColor;
     self.rightView.layer.shadowOffset = CGSizeMake(0,0);
@@ -76,30 +74,26 @@
 
 -(void)initUIView
 {
-    self.slideChangeSpeed = 800;
-//    self.slideChangeSetting = 100;
-//    self.slideSettingMax = 240;
-    self.slideSettingMax = [[UIScreen mainScreen] bounds].size.width-80;
+    self.slideChangeSpeed =800;
+    self.slideSettingMax = [[UIScreen mainScreen] bounds].size.width-180;
     self.slideChangeSetting = self.slideSettingMax/2;
     self.animationTime = 0.2;
     self.slideSettingTransform_x = 0.7;
     self.slideSettingTransform_y = 0.7;
     self.slideLeftX = 30;
-    self.slideAlpha = 0.6;
+    self.slideAlpha = 0.1;
     
-    self.rightView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-//    centreViewCtor = [[CentreViewController alloc] initWithNibName:@"CentreViewController" bundle:nil];
+//    self.rightView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     UIStoryboard*mainSb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     centreViewCtor=[mainSb instantiateViewControllerWithIdentifier:@"sb_CentreView"];
     self.centreViewCtor.mainViewContor = self;
-//    UINavigationController *naivContor = [[UINavigationController alloc] initWithRootViewController:self.centreViewCtor];
-//    [self.rightView addSubview:naivContor.view];
-//    [self addChildViewController:naivContor];
+    //将centerView及对应的controller添加到rightView中
     [self.rightView addSubview:centreViewCtor.view];
     [self addChildViewController:centreViewCtor];
     menuViewCtor =[mainSb instantiateViewControllerWithIdentifier:@"sb_menuView"];
-    self.leftView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    self.menuViewCtor.view.frame = self.leftView.frame;
+//    self.leftView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+//    self.menuViewCtor.view.frame = self.leftView.frame;
+    //将菜单视图添加到leftView中
     [self.leftView addSubview:self.menuViewCtor.view];
     self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
     self.rightView.alpha = 1;
