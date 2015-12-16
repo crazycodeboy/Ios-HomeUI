@@ -28,8 +28,8 @@
 
 -(void)onSwitchWithAnimaiton:(BOOL)isClose;
 -(void)onSliding:(float)x;
--(void)rightMoveStatu:(int)tag finishAnimaiton:(BOOL)haveAnimation needFresh:(BOOL)fresh;
--(void)rightMaxShow:(int)tag;
+-(void)onPageSelected:(int)tag finishAnimaiton:(BOOL)haveAnimation;
+-(void)onPageSelected:(int)tag;
 -(void)onPageChanging:(float)x;
 -(void)onPageChangedIsNeed:(BOOL)flag needNext:(BOOL)isNext;
 

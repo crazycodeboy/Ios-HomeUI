@@ -179,7 +179,7 @@
         if (clickIndex != sender.tag)
         {
             clickIndex = sender.tag;
-            [self.mainViewContor rightMoveStatu:(int)sender.tag finishAnimaiton:YES needFresh:YES];
+            [self.mainViewContor onPageSelected:(int)sender.tag finishAnimaiton:YES];
         }
     }
 }

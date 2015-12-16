@@ -273,79 +273,59 @@
     //缩放侧边栏视图
     self.leftView.transform  = CGAffineTransformMakeScale(trans_x, trans_y);
 }
-
-//right max
--(void)rightMoveStatu:(int)tag finishAnimaiton:(BOOL)haveAnimation needFresh:(BOOL)fresh
-{
-    if (haveAnimation == YES)
-    {
-        [UIView animateWithDuration:self.animationTime delay:0 options:UIViewAnimationOptionCurveLinear animations:^
-         {
-             [self rightMaxShow:tag];
-         } completion:^(BOOL finished)
-         {
-             if (fresh == YES)
-             {
-                 if (tag == 11)
-                 {
-//                     [MobClick event:home_page_btn_open_new_express  label:home_page_btn_open_new_express_Lbl];
-//                     [self.centreViewCtor.rightViewContor1 loadData2];
-                 }
-                 else if (tag == 22)
-                 {
-//                     [MobClick event:home_page_btn_open_tobe_picup label:home_page_btn_open_tobe_picup_Lbl];
-//                     [self.centreViewCtor.rightViewContor2 loadData2];
-                 }
-                 else if (tag == 33)
-                 {
-//                     [MobClick event:home_page_btn_open_tobe_site label:home_page_btn_open_tobe_site_Lbl];
-//                     [self.centreViewCtor.rightViewContor3 loadData2];
-                 }
-                 else
-                 {
-//                     [MobClick event:home_page_btn_open_tobe_confirm label:home_page_btn_open_tobe_confirm];
-//                     [self.centreViewCtor.rightViewContor4 loadData2];
-                 }
+/**
+ * 显示选择的页面
+ * @param tag 要显示页面的标识
+*  @param haveAnimation 是否需要动画
+ **/
+-(void)onPageSelected:(int)tag finishAnimaiton:(BOOL)haveAnimation{
+    if (haveAnimation == YES) {
+        [UIView animateWithDuration:self.animationTime delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+             [self onPageSelected:tag];
+         } completion:^(BOOL finished){
+             //根据相应的页面刷新数据
+             if (tag == 11){
+                 
+             }else if (tag == 22){
+                 
+             }else if (tag == 33){
+                 
+             }else{
+                 
              }
-         }
-         ];
-    }
-    else
-    {
-        [self rightMaxShow:tag];
+
+         }];
+    }else{
+        [self onPageSelected:tag];
     }
 }
--(void)rightMaxShow:(int)tag;
-{
+/**
+ * 显示选择的页面
+ * @param tag 要显示页面的标识
+ **/
+-(void)onPageSelected:(int)tag;{
     CGRect rect = self.centreViewCtor.upView.frame;
     CGRect rect1 = rect;
     CGRect rect2 = rect;
     CGRect rect3 = rect;
     CGRect rect4 = rect;
     
-    if (tag == 11)
-    {
+    if (tag == 11) {
         rect1.origin.x = 0;
         rect2.origin.x = self.centreViewCtor.upView.frame.size.width;
         rect3.origin.x = self.centreViewCtor.upView.frame.size.width*2;
         rect4.origin.x = self.centreViewCtor.upView.frame.size.width*3;
-    }
-    else if (tag == 22)
-    {
+    }else if (tag == 22) {
         rect1.origin.x = -self.centreViewCtor.upView.frame.size.width;
         rect2.origin.x = 0;
         rect3.origin.x = self.centreViewCtor.upView.frame.size.width;
         rect4.origin.x = self.centreViewCtor.upView.frame.size.width*2;
-    }
-    else if (tag == 33)
-    {
+    }else if (tag == 33){
         rect1.origin.x = -self.centreViewCtor.upView.frame.size.width*2;
         rect2.origin.x = -self.centreViewCtor.upView.frame.size.width;
         rect3.origin.x = 0;
         rect4.origin.x = self.centreViewCtor.upView.frame.size.width;
-    }
-    else if (tag == 44)
-    {
+    }else if (tag == 44) {
         rect1.origin.x = -self.centreViewCtor.upView.frame.size.width*3;
         rect2.origin.x = -self.centreViewCtor.upView.frame.size.width*2;
         rect3.origin.x = -self.centreViewCtor.upView.frame.size.width;
@@ -357,6 +337,11 @@
     [self changeViewHorizontalPosition:self.centreViewCtor.rightView4 rect:rect4];
     [self.centreViewCtor tabBarImage:tag];
 }
+/**
+ * 改变View的水平位置
+ * @param view
+ * @param rect 改变后View的CGRect
+ **/
 -(void)changeViewHorizontalPosition:(UIView*)view rect:(CGRect)rect{
     CGRect finalRect=view.frame;
     finalRect.origin.x=rect.origin.x;
@@ -422,10 +407,7 @@
             tag = 11;
         }
     }
-    [self rightMoveStatu:tag finishAnimaiton:YES needFresh:isNext];
+    [self onPageSelected:tag finishAnimaiton:YES ];
 }
-
-
-
 @end
 
