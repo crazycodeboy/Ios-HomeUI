@@ -338,7 +338,7 @@
     [self changeViewHorizontalPosition:self.centreViewCtor.rightView2 rect:rect2];
     [self changeViewHorizontalPosition:self.centreViewCtor.rightView3 rect:rect3];
     [self changeViewHorizontalPosition:self.centreViewCtor.rightView4 rect:rect4];
-    [self.centreViewCtor tabBarImage:tag];
+    [self.centreViewCtor setTabBarSelectedImage:tag];
 }
 /**
  * 改变View的水平位置

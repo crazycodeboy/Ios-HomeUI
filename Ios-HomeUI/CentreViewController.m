@@ -51,44 +51,34 @@
     }
 }
 -(void)initUIView{
-    CGRect rect = self.bottomView.frame;
-    rect.origin.y = [UIScreen mainScreen].bounds.size.height-self.bottomView.frame.size.height-64;
-    rect.size.width = [UIScreen mainScreen].bounds.size.width;
-    self.bottomView.frame = rect;
-    self.upView.frame = CGRectMake(0, 0, rect.size.width, self.view.frame.size.height-self.bottomView.frame.size.height);
-    self.rightView1.frame = self.upView.frame;
-    self.rightView2.frame = CGRectMake(self.rightView1.frame.size.width, 0, self.rightView1.frame.size.width,self.rightView1.frame.size.height);
-    self.rightView3.frame = CGRectMake(self.rightView1.frame.size.width*2, 0, self.rightView1.frame.size.width,self.rightView1.frame.size.height);
-    self.rightView4.frame = CGRectMake(self.rightView1.frame.size.width*3, 0, self.rightView1.frame.size.width,self.rightView1.frame.size.height);
-    
-    float widt1 = [UIScreen mainScreen].bounds.size.width/4;
-    self.rightView11.frame = CGRectMake(0, 0, widt1, self.bottomView.frame.size.height);
-    self.rightView22.frame = CGRectMake(widt1, 0, widt1, self.bottomView.frame.size.height);
-    self.rightView33.frame = CGRectMake(2*widt1, 0, widt1, self.bottomView.frame.size.height);
-    self.rightView44.frame = CGRectMake(3*widt1, 0, widt1, self.bottomView.frame.size.height);
-
     UIStoryboard*mainSb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     rightViewContor1 =[mainSb instantiateViewControllerWithIdentifier:@"sb_new"];
     rightViewContor1.view.frame = self.rightView1.frame;
     [self.rightView1 addSubview:self.rightViewContor1.view];
-//    [self.rightViewContor1 loadData2];
+//    [self.rightViewContor1 loadData];
     
     rightViewContor2 =[mainSb instantiateViewControllerWithIdentifier:@"sb_fetch"];
     rightViewContor2.view.frame = self.rightView1.frame;
     [self.rightView2 addSubview:self.rightViewContor2.view];
-//    [self.rightViewContor2 loadData2];
+//    [self.rightViewContor2 loadData];
     
     rightViewContor3 = [mainSb instantiateViewControllerWithIdentifier:@"sb_draw"];
     rightViewContor3.view.frame = self.rightView1.frame;
     [self.rightView3 addSubview:self.rightViewContor3.view];
-//    [self.rightViewContor3 loadData2];
+//    [self.rightViewContor3 loadData];
     
     rightViewContor4 = [mainSb instantiateViewControllerWithIdentifier:@"sb_sign"];;
     rightViewContor4.view.frame = self.rightView1.frame;
     [self.rightView4 addSubview:self.rightViewContor4.view];
-//    [self.rightViewContor4 loadData2];
+//    [self.rightViewContor4 loadData];
     
-    [self tabBarImage:11];
+    [self setTabBarSelectedImage:11];
+    [self initTabBarIndicator];
+}
+/**
+ * 初始化TabBar指示器
+ **/
+-(void)initTabBarIndicator{
     [self.rightLbl11 setClipsToBounds:YES];
     self.rightLbl11.layer.cornerRadius = self.rightLbl11.frame.size.height/2;
     [self.rightLbl22 setClipsToBounds:YES];
@@ -97,44 +87,37 @@
     self.rightLbl33.layer.cornerRadius = self.rightLbl33.frame.size.height/2;
     [self.rightLbl44 setClipsToBounds:YES];
     self.rightLbl44.layer.cornerRadius = self.rightLbl44.frame.size.height/2;
-    [self m_setRight2Lbl:0 index:1];
-    [self m_setRight2Lbl:0 index:2];
-    [self m_setRight2Lbl:0 index:3];
-    [self m_setRight2Lbl:0 index:4];
+    [self setTipNum:22 lab:self.rightLbl11];
+    [self setTipNum:1 lab:self.rightLbl22];
+    [self setTipNum:0 lab:self.rightLbl33];
+    [self setTipNum:99 lab:self.rightLbl44];
 }
-
--(void)tabBarImage:(int)stly
-{
-    if (stly == 11)
-    {
+/**
+ * 设置TabBar选中时显示的图片
+ */
+-(void)setTabBarSelectedImage:(int)tag{
+    if (tag == 11){
         [self.rightBtn11 setImage:[[UIImage imageNamed:@"新订单（点中）.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn22 setImage:[[UIImage imageNamed:@"待取件.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn33 setImage:[[UIImage imageNamed:@"待进站.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn44 setImage:[[UIImage imageNamed:@"待签收.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
-    }
-    else if (stly == 22)
-    {
+    }else if (tag == 22){
         [self.rightBtn11 setImage:[[UIImage imageNamed:@"新订单.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn22 setImage:[[UIImage imageNamed:@"待取件（点中）.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn33 setImage:[[UIImage imageNamed:@"待进站.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn44 setImage:[[UIImage imageNamed:@"待签收.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
-    }
-    else if (stly == 33)
-    {
+    }else if (tag == 33){
         [self.rightBtn11 setImage:[[UIImage imageNamed:@"新订单.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn22 setImage:[[UIImage imageNamed:@"待取件.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn33 setImage:[[UIImage imageNamed:@"待进站（点中）.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn44 setImage:[[UIImage imageNamed:@"待签收.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
-    }
-    else
-    {
+    }else{
         [self.rightBtn11 setImage:[[UIImage imageNamed:@"新订单.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn22 setImage:[[UIImage imageNamed:@"待取件.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn33 setImage:[[UIImage imageNamed:@"待进站.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [self.rightBtn44 setImage:[[UIImage imageNamed:@"待签收（点中）.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     }
-    
-    clickIndex = stly;
+    clickIndex = tag;
 }
 
 
@@ -161,77 +144,15 @@
         }
     }
 }
-
--(void)m_setRight2Lbl:(int)count index:(int)index
-{
-    if (count == 0)
-    {
-        if (index == 1)
-        {
-            [self.rightLbl11 setHidden:YES];
-        }
-        else if (index == 2)
-        {
-            [self.rightLbl22 setHidden:YES];
-        }
-        else if (index == 3)
-        {
-            [self.rightLbl33 setHidden:YES];
-        }
-        else
-        {
-            [self.rightLbl44 setHidden:YES];
-        }
-        
+/**
+ *  设置指示器显示的数字
+ **/
+-(void)setTipNum:(int)count lab:(UILabel*)lab{
+    lab.text=[NSString stringWithFormat:@"%d",count];
+    if (count == 0){
+        [lab setHidden:YES];
+    }else{
+        [lab setHidden:NO];
     }
-    else
-    {
-        float pianyi = 15;
-        if (index == 1)
-        {
-            self.rightLbl11.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [self m_getWidt_str:self.rightLbl11.text m_font:self.rightLbl11.font higt:self.rightLbl11.frame.size.height]+4;
-            widt = widt>self.rightView11.frame.size.width?self.rightView11.frame.size.width:widt;
-            widt = widt<self.rightLbl11.frame.size.height?self.rightLbl11.frame.size.height:widt;
-            self.rightLbl11.frame = CGRectMake((self.rightView11.frame.size.width-widt)/2+pianyi, self.rightLbl11.frame.origin.y, widt, self.rightLbl11.frame.size.height);
-            [self.rightLbl11 setHidden:NO];
-        }
-        else if (index == 2)
-        {
-            self.rightLbl22.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [self m_getWidt_str:self.rightLbl22.text m_font:self.rightLbl22.font higt:self.rightLbl22.frame.size.height]+4;
-            widt = widt>self.rightView22.frame.size.width?self.rightView22.frame.size.width:widt;
-            widt = widt<self.rightLbl22.frame.size.height?self.rightLbl22.frame.size.height:widt;
-            self.rightLbl22.frame = CGRectMake((self.rightView22.frame.size.width-widt)/2+pianyi, self.rightLbl22.frame.origin.y, widt, self.rightLbl22.frame.size.height);
-            [self.rightLbl22 setHidden:NO];
-        }
-        else if (index == 3)
-        {
-            self.rightLbl33.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [self m_getWidt_str:self.rightLbl33.text m_font:self.rightLbl33.font higt:self.rightLbl33.frame.size.height]+4;
-            widt = widt>self.rightView33.frame.size.width?self.rightView33.frame.size.width:widt;
-            widt = widt<self.rightLbl33.frame.size.height?self.rightLbl33.frame.size.height:widt;
-            self.rightLbl33.frame = CGRectMake((self.rightView33.frame.size.width-widt)/2+pianyi, self.rightLbl33.frame.origin.y, widt, self.rightLbl33.frame.size.height);
-            [self.rightLbl33 setHidden:NO];
-        }
-        else
-        {
-            self.rightLbl44.text = [NSString stringWithFormat:@"%d",count];
-            float widt = [self m_getWidt_str:self.rightLbl44.text m_font:self.rightLbl44.font higt:self.rightLbl44.frame.size.height]+4;
-            widt = widt>self.rightView44.frame.size.width?self.rightView44.frame.size.width:widt;
-            widt = widt<self.rightLbl44.frame.size.height?self.rightLbl44.frame.size.height:widt;
-            self.rightLbl44.frame = CGRectMake((self.rightView44.frame.size.width-widt)/2+pianyi, self.rightLbl44.frame.origin.y, widt, self.rightLbl44.frame.size.height);
-            [self.rightLbl44 setHidden:NO];
-        }
-    }
-}
-
-#pragma mark - 宽高度自适应
-- (float)m_getWidt_str:(NSString *)str m_font:(UIFont *)font higt:(float)higt
-{
-    CGSize size;
-    NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil];
-    size=[str boundingRectWithSize:CGSizeMake(MAXFLOAT, higt) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
-    return size.width;
 }
 @end

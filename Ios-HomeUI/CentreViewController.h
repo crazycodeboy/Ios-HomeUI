@@ -39,7 +39,7 @@
 
 
 -(void)initUIView;
--(void)tabBarImage:(int)stly;
+-(void)setTabBarSelectedImage:(int)tag;
 -(IBAction)doBtnAction:(UIButton *)sender;
--(void)m_setRight2Lbl:(int)count index:(int)index;
+-(void)setTipNum:(int)count lab:(UILabel*)lab;
 @end
