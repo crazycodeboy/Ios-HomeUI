@@ -32,7 +32,6 @@
 
 @synthesize leftView;
 @synthesize rightView;
-@synthesize rightBackView;
 @synthesize centreViewCtor;
 @synthesize menuViewCtor;
 
@@ -83,7 +82,6 @@
     self.slideLeftX = 30;
     self.slideAlpha = 0.1;
     
-//    self.rightView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     UIStoryboard*mainSb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     centreViewCtor=[mainSb instantiateViewControllerWithIdentifier:@"sb_CentreView"];
     self.centreViewCtor.mainViewContor = self;
@@ -91,16 +89,11 @@
     [self.rightView addSubview:centreViewCtor.view];
     [self addChildViewController:centreViewCtor];
     menuViewCtor =[mainSb instantiateViewControllerWithIdentifier:@"sb_menuView"];
-//    self.leftView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-//    self.menuViewCtor.view.frame = self.leftView.frame;
+    
     //将菜单视图添加到leftView中
     [self.leftView addSubview:self.menuViewCtor.view];
     self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
     self.rightView.alpha = 1;
-    self.rightBackView.frame = self.rightView.frame;
-    self.rightBackView.alpha = 0;
-    [self.rightBackView setHidden:YES];    
-
     
     self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
     self.tapGestureRecognizer.delegate = self;
@@ -109,10 +102,6 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
     panGestureRecognizer.delegate = self;
     [self.rightView addGestureRecognizer:panGestureRecognizer];
-    
-    UIPanGestureRecognizer *panGestureRecognizer2 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
-    panGestureRecognizer2.delegate = self;
-    [self.rightBackView addGestureRecognizer:panGestureRecognizer2];
 }
 
 -(void)m_prsentViewContor:(UIViewController*)contor
@@ -149,15 +138,7 @@
     UIGestureRecognizerState state = panGestureRecognizer.state;
     CGPoint location = [panGestureRecognizer locationInView:self.view];
     CGPoint velocity;
-    if ([self.rightBackView isHidden])
-    {
-        velocity = [panGestureRecognizer velocityInView:self.rightView];
-    }
-    else
-    {
-        velocity = [panGestureRecognizer velocityInView:self.rightBackView];
-    }
-    
+    velocity = [panGestureRecognizer velocityInView:self.rightView];
     switch (state)
     {
         case UIGestureRecognizerStateBegan:
@@ -312,33 +293,24 @@
          CGRect rect = self.rightView.frame;
          rect.origin.x = x;
          self.rightView.frame = rect;
-         self.rightBackView.frame = rect;
          
          if (isRight == NO)
          {
              self.leftView.transform  = CGAffineTransformMakeScale(1, 1);
-             self.rightBackView.alpha = self.slideAlpha;
-             [self.rightBackView setHidden:NO];
          }
          else
          {
              self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
-             self.rightBackView.alpha = 0;
-             [self.rightBackView setHidden:YES];
          }
      } completion:^(BOOL finished)
      {
          if (isRight == YES)
          {
-//             [self.centreViewCtor.view setUserInteractionEnabled:YES];
              [self.rightView removeGestureRecognizer:self.tapGestureRecognizer];
-//             [self.rightBackView removeGestureRecognizer:self.tapGestureRecognizer];
          }
          else
          {
-//             [self.centreViewCtor.view setUserInteractionEnabled:NO];
              [self.rightView addGestureRecognizer:self.tapGestureRecognizer];
-//             [self.rightBackView addGestureRecognizer:self.tapGestureRecognizer];
          }
      }
      ];
@@ -350,9 +322,6 @@
     CGRect rect = self.rightView.frame;
     rect.origin.x = x;
     self.rightView.frame = rect;
-    self.rightBackView.frame = rect;
-    self.rightBackView.alpha = (x/self.slideSettingMax)*self.slideAlpha;
-    [self.rightBackView setHidden:NO];
     
     float trans_x = self.slideSettingTransform_x-(x/self.slideSettingMax)*(self.slideSettingTransform_x-1) ;
     float trans_y = self.slideSettingTransform_y+(x/self.slideSettingMax)*(1-self.slideSettingTransform_y) ;

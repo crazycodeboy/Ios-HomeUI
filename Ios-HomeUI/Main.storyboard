@@ -18,11 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuH-RD-UfR" userLabel="Right Back View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.99215686270000003" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ak-Uf-W6Z" userLabel="Left View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
@@ -37,15 +32,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CuH-RD-UfR" firstAttribute="width" secondItem="u9L-lH-DFF" secondAttribute="width" id="AaX-0h-XY6"/>
-                            <constraint firstItem="CuH-RD-UfR" firstAttribute="height" secondItem="u9L-lH-DFF" secondAttribute="height" id="FjQ-Px-zNx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CuH-RD-UfR" secondAttribute="trailing" constant="-20" id="HgH-l1-C2B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5ak-Uf-W6Z" secondAttribute="trailing" constant="-20" id="Opf-9k-fLA"/>
                             <constraint firstItem="5ak-Uf-W6Z" firstAttribute="width" secondItem="u9L-lH-DFF" secondAttribute="width" id="QD2-Wp-Joa"/>
                             <constraint firstItem="5ak-Uf-W6Z" firstAttribute="centerY" secondItem="u9L-lH-DFF" secondAttribute="centerY" id="UE9-5y-n6p"/>
                             <constraint firstItem="B3R-Pi-2Zd" firstAttribute="height" secondItem="u9L-lH-DFF" secondAttribute="height" id="V7n-ym-jxq"/>
-                            <constraint firstItem="CuH-RD-UfR" firstAttribute="centerY" secondItem="u9L-lH-DFF" secondAttribute="centerY" id="cgg-Qe-nv6"/>
-                            <constraint firstItem="CuH-RD-UfR" firstAttribute="leading" secondItem="u9L-lH-DFF" secondAttribute="leadingMargin" constant="-20" id="dpF-Cq-b9k"/>
                             <constraint firstItem="B3R-Pi-2Zd" firstAttribute="leading" secondItem="u9L-lH-DFF" secondAttribute="leadingMargin" constant="-20" id="kfN-Ah-NMX"/>
                             <constraint firstItem="5ak-Uf-W6Z" firstAttribute="height" secondItem="u9L-lH-DFF" secondAttribute="height" id="pA7-aS-So0"/>
                             <constraint firstItem="B3R-Pi-2Zd" firstAttribute="centerY" secondItem="u9L-lH-DFF" secondAttribute="centerY" id="scg-YP-IA6"/>
@@ -56,7 +46,6 @@
                     </view>
                     <connections>
                         <outlet property="leftView" destination="5ak-Uf-W6Z" id="2tk-pI-QmB"/>
-                        <outlet property="rightBackView" destination="CuH-RD-UfR" id="thK-lZ-rih"/>
                         <outlet property="rightView" destination="B3R-Pi-2Zd" id="B2d-9R-NwV"/>
                     </connections>
                 </viewController>

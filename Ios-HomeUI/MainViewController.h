@@ -19,7 +19,7 @@
 
 @property(nonatomic,strong)IBOutlet UIView *leftView;
 @property(nonatomic,strong)IBOutlet UIView *rightView;
-@property(nonatomic,strong)IBOutlet UIView *rightBackView;
+//@property(nonatomic,strong)IBOutlet UIView *rightBackView;
 @property(nonatomic,strong) CentreViewController *centreViewCtor;
 @property(nonatomic,strong) MenuViewController *menuViewCtor;
 
