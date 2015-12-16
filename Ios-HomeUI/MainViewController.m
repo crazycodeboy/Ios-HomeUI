@@ -147,30 +147,24 @@
         case UIGestureRecognizerStateChanged:
         {
             CGFloat delta = location.x - self.panGestureStartLocation.x;
-            if (delta > 0)//向右滑动
-            {
+            if (delta > 0){//向右滑动
                 if (self.rightView.frame.origin.x < self.slideSettingMax){//侧拉栏未展开
                     if (self.right1StartX >= 0){//centerView中rightView1位于屏幕中（当前显示的是第一页）
                         if (delta <= self.slideSettingMax){//如果滑动的距离小于侧拉栏展开宽度
-                            [self rightSlide_x:delta];
+                            [self onSliding:delta];
                         }
                     }else{//当前不是第一页
-                        [self rightMoveSlide_x:self.right1StartX+delta];
+                        [self onPageChanging:self.right1StartX+delta];
                     }
                 }
             }
-            else if (delta < 0)//向左滑动
-            {
+            else if (delta < 0) {//向左滑动
                 delta = -delta;
-                if (self.rightView.frame.origin.x == 0)
-                {
-                    [self rightMoveSlide_x:self.right1StartX-delta];
-                }
-                else
-                {
-                    if (self.panGestureStartLocation.x > self.slideSettingMax)
-                    {
-                        [self rightSlide_x:self.rightStartX-delta];
+                if (self.rightView.frame.origin.x == 0){
+                    [self onPageChanging:self.right1StartX-delta];
+                }else{
+                    if (self.panGestureStartLocation.x > self.slideSettingMax){
+                        [self onSliding:self.rightStartX-delta];
                     }
                 }
             }
@@ -296,9 +290,10 @@
      } ];
 }
 /**
- * 显示和隐藏侧边栏
+ * 通过滑动显示和隐藏侧边栏
+ * @param x 滑动的距离
  **/
--(void)rightSlide_x:(float)x
+-(void)onSliding:(float)x
 {
     x = x>self.slideSettingMax?self.slideSettingMax:x;
     x = x<=0?0:x;
@@ -400,19 +395,12 @@
     finalRect.origin.x=rect.origin.x;
     view.frame=finalRect;
 }
-//all rightViev move
--(void)rightMoveSlide_x:(float)x;
-{
-    if (x < -self.centreViewCtor.upView.frame.size.width*3)
-    {
-        [self rightMaxShow:44];
-    }
-    else if (x > 0)
-    {
-        [self rightMaxShow:11];
-    }
-    else
-    {
+/**
+ * 根据第一页的位置和滑动的距离来进行滑动翻页
+ * @ param x 页面相对x轴滑动的距离
+ **/
+-(void)onPageChanging:(float)x{
+    if (x >= -self.centreViewCtor.upView.frame.size.width*3&&x<=0){//滑动到首末页的异常处理
         CGRect rect = self.centreViewCtor.upView.frame;
         rect.origin.x = x;
         [self changeViewHorizontalPosition:self.centreViewCtor.rightView1 rect:rect];

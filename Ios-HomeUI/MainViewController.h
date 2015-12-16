@@ -27,10 +27,10 @@
 -(void)initUIView;
 
 -(void)onSwitchWithAnimaiton:(BOOL)isClose;
--(void)rightSlide_x:(float)x;
+-(void)onSliding:(float)x;
 -(void)rightMoveStatu:(int)tag finishAnimaiton:(BOOL)haveAnimation needFresh:(BOOL)fresh;
 -(void)rightMaxShow:(int)tag;
--(void)rightMoveSlide_x:(float)x;
+-(void)onPageChanging:(float)x;
 -(void)rightSpeedSlide_isLeft:(BOOL)flag needNext:(BOOL)isNext;
 
 
