@@ -24,16 +24,12 @@
 @property(nonatomic,strong)IBOutlet UIView *rightView2;
 @property(nonatomic,strong)IBOutlet UIView *rightView3;
 @property(nonatomic,strong)IBOutlet UIView *rightView4;
-@property(nonatomic,strong)IBOutlet UIView *rightView11;
 @property(nonatomic,strong)IBOutlet UILabel *rightLbl11;
 @property(nonatomic,strong)IBOutlet UIButton *rightBtn11;   //tag 11
-@property(nonatomic,strong)IBOutlet UIView *rightView22;
 @property(nonatomic,strong)IBOutlet UILabel *rightLbl22;
 @property(nonatomic,strong)IBOutlet UIButton *rightBtn22;  //tag 22
-@property(nonatomic,strong)IBOutlet UIView *rightView33;
 @property(nonatomic,strong)IBOutlet UILabel *rightLbl33;
 @property(nonatomic,strong)IBOutlet UIButton *rightBtn33;   //tag 33
-@property(nonatomic,strong)IBOutlet UIView *rightView44;
 @property(nonatomic,strong)IBOutlet UILabel *rightLbl44;
 @property(nonatomic,strong)IBOutlet UIButton *rightBtn44;   //tag 44
 

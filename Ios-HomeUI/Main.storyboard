@@ -504,13 +504,9 @@
                         <outlet property="rightLbl33" destination="nTS-5n-W7u" id="Xz3-rk-oeO"/>
                         <outlet property="rightLbl44" destination="gkX-af-41g" id="sOG-4D-HVo"/>
                         <outlet property="rightView1" destination="NW3-Vh-4Nd" id="Buj-8e-T0l"/>
-                        <outlet property="rightView11" destination="rNB-h5-N0n" id="QYe-kw-ceR"/>
                         <outlet property="rightView2" destination="0Ed-je-hyK" id="SEb-gR-K6L"/>
-                        <outlet property="rightView22" destination="FOY-ds-jId" id="bBy-nx-8ma"/>
                         <outlet property="rightView3" destination="aVv-Bo-p9u" id="uny-yI-TQh"/>
-                        <outlet property="rightView33" destination="IRH-CP-Ydn" id="bNq-H0-J8s"/>
                         <outlet property="rightView4" destination="HID-KA-Ps4" id="oSL-9O-Htk"/>
-                        <outlet property="rightView44" destination="hMN-aa-4MP" id="1dv-kj-LwZ"/>
                         <outlet property="upView" destination="igW-NP-zqS" id="n0m-8d-NQS"/>
                     </connections>
                 </viewController>
