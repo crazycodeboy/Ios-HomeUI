@@ -194,7 +194,7 @@
                     if (self.right1StartX == 0){
                         if (delta > self.slideChangeSetting){
                             [self onSwitchWithAnimaiton:NO];
-                        }else{
+                        }else if(self.rightView.frame.origin.x<self.slideSettingMax){//如果侧边栏没有打开
                             [self onSwitchWithAnimaiton:YES];
                         }
                     }else{
