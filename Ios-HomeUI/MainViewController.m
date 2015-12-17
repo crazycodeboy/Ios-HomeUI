@@ -154,12 +154,11 @@
                         if (delta <= self.slideSettingMax){//如果滑动的距离小于侧拉栏展开宽度
                             [self onSliding:delta];
                         }
-                    }else{//当前不是第一页
+                    }else if(self.rightView.frame.origin.x==0){//当前不是第一页
                         [self onPageChanging:self.right1StartX+delta];
                     }
                 }
-            }
-            else if (delta < 0) {//向左滑动
+            }else if (delta < 0) {//向左滑动
                 delta = -delta;
                 if (self.rightView.frame.origin.x == 0){//如果侧边栏没打开，则滑动翻页页面
                     [self onPageChanging:self.right1StartX-delta];
@@ -180,12 +179,10 @@
                     [self onPageChangedIsNeed:YES needNext:YES];
                 }
             }else if(velocity.x > self.slideChangeSpeed){//向右滑动速度大于slideChangeSpeed
-                if (self.rightView.frame.origin.x != self.slideSettingMax){//侧边栏不处于已打开状态
-                    if (self.right1StartX == 0){//且当前显示的是第一页，则打开侧边栏
-                        [self onSwitchWithAnimaiton:NO];
-                    }else {
-                        [self onPageChangedIsNeed:NO needNext:YES];
-                    }
+                if (self.rightView.frame.origin.x == 0){//侧边栏完全关闭
+                    [self onPageChangedIsNeed:NO needNext:YES];
+                }else{
+                    [self onSwitchWithAnimaiton:NO];
                 }
             }else{
                 CGFloat delta = 0.0f;
