@@ -152,7 +152,9 @@
                 if (self.rightView.frame.origin.x < self.slideSettingMax){//侧拉栏未展开
                     if (self.right1StartX >= 0){//centerView中rightView1位于屏幕中（当前显示的是第一页）
                         if (delta <= self.slideSettingMax){//如果滑动的距离小于侧拉栏展开宽度
-                            [self onSliding:delta];
+                            if([self checkSliding:true targetView:self.leftView xLength:delta]){//如果符合缩放要求则进行缩放
+                                [self onSliding:delta];
+                            }
                         }
                     }else if(self.rightView.frame.origin.x==0){//当前不是第一页
                         [self onPageChanging:self.right1StartX+delta];
@@ -273,6 +275,18 @@
     float trans_y = self.slideSettingTransform_y+(x/self.slideSettingMax)*(1-self.slideSettingTransform_y) ;
     //缩放侧边栏视图
     self.leftView.transform  = CGAffineTransformMakeScale(trans_x, trans_y);
+}
+/**
+ * 检测x位移是否符合当前滑动方向和当前大小
+ * @param isToOpen 是否要打开侧边栏
+ * @param view要缩放的视图
+ * @param length 位移
+ * @return true 检测通过，false不通过
+ **/
+-(BOOL)checkSliding:(BOOL)isToOpen targetView:(UIView*)view xLength:(float)length{
+    float currentTx=view.transform.a;
+    float willTx=self.slideSettingTransform_x-(length/self.slideSettingMax)*(self.slideSettingTransform_x-1) ;
+    return isToOpen&&(willTx>currentTx);
 }
 #pragma mark - Page Change
 /**
