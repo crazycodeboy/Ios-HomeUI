@@ -253,8 +253,10 @@
      } completion:^(BOOL finished){
          if (isClose == YES){//侧边栏关闭后移除rightView的tapGestureRecognizer检测器，以便将单击事件监听权交出
              [self.rightView removeGestureRecognizer:self.tapGestureRecognizer];
+             [self.centreViewCtor.view setUserInteractionEnabled:YES];
          }else{
              [self.rightView addGestureRecognizer:self.tapGestureRecognizer];
+             [self.centreViewCtor.view setUserInteractionEnabled:NO];
          }
      } ];
 }
