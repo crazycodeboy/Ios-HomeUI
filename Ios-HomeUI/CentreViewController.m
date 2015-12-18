@@ -105,9 +105,9 @@
 - (IBAction)doBtnAction:(UIButton *)sender{
   if (sender.tag == 3){
         if (self.mainViewContor.rightView.frame.origin.x > 0){
-            [self.mainViewContor onSwitchWithAnimaiton:YES];
+            [self.mainViewContor onSwitchWithAnimaiton:YES isOpenOtherView:false];
         }else{
-            [self.mainViewContor onSwitchWithAnimaiton:NO];
+            [self.mainViewContor onSwitchWithAnimaiton:NO isOpenOtherView:false];
         }
     }else {
         if (self.clickIndex != sender.tag){

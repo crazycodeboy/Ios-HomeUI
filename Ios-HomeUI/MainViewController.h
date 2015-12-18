@@ -12,7 +12,7 @@
 #import "MenuViewController.h"
 
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController<UIGestureRecognizerDelegate>
 {
 }
 
@@ -24,7 +24,7 @@
 
 -(void)initUIView;
 
--(void)onSwitchWithAnimaiton:(BOOL)isClose;
+-(void)onSwitchWithAnimaiton:(BOOL)isClose isOpenOtherView:(BOOL)isOpenOtherView;
 -(void)onSliding:(float)x;
 -(void)onPageSelected:(int)tag finishAnimaiton:(BOOL)haveAnimation;
 -(void)onPageSelected:(int)tag;

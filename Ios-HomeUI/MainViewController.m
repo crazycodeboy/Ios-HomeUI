@@ -9,7 +9,9 @@
 
 @interface MainViewController ()<UIGestureRecognizerDelegate>
 
-@property(nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property(nonatomic, strong) UITapGestureRecognizer *rightTapGestureRecognizer;
+@property(nonatomic, strong) UITapGestureRecognizer *leftTapGestureRecognizer;
+@property(nonatomic, strong)UIPanGestureRecognizer *panGestureRecognizer;
 //活动开始的位置
 @property(nonatomic, assign) CGPoint panGestureStartLocation;
 //滑动开始时rightView 的x点
@@ -81,7 +83,7 @@ BOOL const enabledNavigation=true;
     CGSize size= [[UIScreen mainScreen] bounds].size;
     self.slideSettingMax=(size.width<size.height? size.width:size.height)-180;
     self.slideChangeSetting = self.slideSettingMax/2;
-    self.animationTime = 0.2;
+    self.animationTime = 0.3;
     self.slideSettingTransform_x = 0.7;
     self.slideSettingTransform_y = 0.7;
     self.slideLeftX = 30;
@@ -106,13 +108,11 @@ BOOL const enabledNavigation=true;
     }
     self.rightView.alpha = 1;
     
-    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
-    self.tapGestureRecognizer.delegate = self;
-    self.tapGestureRecognizer.numberOfTapsRequired = 1;
-    
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
-    panGestureRecognizer.delegate = self;
-    [self.rightView addGestureRecognizer:panGestureRecognizer];
+    self.rightTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
+    self.leftTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
+    self.leftTapGestureRecognizer.delegate=self;
+    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
+    [self.rightView addGestureRecognizer:self.panGestureRecognizer];
 }
 
 #pragma mark - Gesture recognizers
@@ -126,7 +126,7 @@ BOOL const enabledNavigation=true;
         case UIGestureRecognizerStateEnded:
             if (self.rightView.frame.origin.x == self.slideSettingMax){//侧拉栏已展开
                 if (location.x > self.slideSettingMax){//单击了侧拉栏以外的位置则关闭侧拉栏
-                    [self onSwitchWithAnimaiton:YES];
+                    [self onSwitchWithAnimaiton:YES isOpenOtherView:false];
                 }
             }
             break;
@@ -138,8 +138,10 @@ BOOL const enabledNavigation=true;
 /**
  * 滑动回调
  */
--(void)panGestureRecognized:(UIPanGestureRecognizer *)panGestureRecognizer
-{
+-(void)panGestureRecognized:(UIPanGestureRecognizer *)panGestureRecognizer{
+    if (!(self.centreViewCtor.isViewLoaded && self.centreViewCtor.view.window)) {//如果内容页没有显示则不处理此手势
+        return;
+    }
     UIGestureRecognizerState state = panGestureRecognizer.state;
     CGPoint location = [panGestureRecognizer locationInView:self.view];
     CGPoint velocity;
@@ -183,7 +185,7 @@ BOOL const enabledNavigation=true;
         {
             if(velocity.x < -self.slideChangeSpeed) {//向左滑动速度大于slideChangeSpeed
                 if (self.rightView.frame.origin.x != 0){//侧边栏处于打开状态则关闭侧边栏
-                    [self onSwitchWithAnimaiton:YES];
+                    [self onSwitchWithAnimaiton:YES isOpenOtherView:false];
                 }else{
                     [self onPageChangedIsNeed:YES needNext:YES];
                 }
@@ -191,7 +193,7 @@ BOOL const enabledNavigation=true;
                 if (self.rightView.frame.origin.x == 0){//侧边栏完全关闭
                     [self onPageChangedIsNeed:NO needNext:YES];
                 }else{
-                    [self onSwitchWithAnimaiton:NO];
+                    [self onSwitchWithAnimaiton:NO isOpenOtherView:false];
                 }
             }else{
                 CGFloat delta = 0.0f;
@@ -199,9 +201,9 @@ BOOL const enabledNavigation=true;
                 if (delta > 0){
                     if (self.right1StartX == 0){
                         if (delta > self.slideChangeSetting){
-                            [self onSwitchWithAnimaiton:NO];
+                            [self onSwitchWithAnimaiton:NO isOpenOtherView:false];
                         }else if(self.rightView.frame.origin.x<self.slideSettingMax){//如果侧边栏没有打开
-                            [self onSwitchWithAnimaiton:YES];
+                            [self onSwitchWithAnimaiton:YES isOpenOtherView:false];
                         }
                     }else{
                         if (delta < self.rightView.frame.size.width/2){
@@ -220,9 +222,9 @@ BOOL const enabledNavigation=true;
                         }
                     }else{
                         if (self.rightView.frame.origin.x >= self.slideChangeSetting){
-                            [self onSwitchWithAnimaiton:NO];
+                            [self onSwitchWithAnimaiton:NO isOpenOtherView:false];
                         }else{
-                            [self onSwitchWithAnimaiton:YES];
+                            [self onSwitchWithAnimaiton:YES isOpenOtherView:false];
                         }
                     }
                 }
@@ -239,7 +241,7 @@ BOOL const enabledNavigation=true;
  * 打开或关闭侧边栏,带动
  * @param isClose YES 关闭，NO 打开
  **/
--(void)onSwitchWithAnimaiton:(BOOL)isClose{
+-(void)onSwitchWithAnimaiton:(BOOL)isClose isOpenOtherView:(BOOL)isOpenOtherView{
     float x;
     if (isClose == NO){
         x = self.slideSettingMax;
@@ -250,19 +252,20 @@ BOOL const enabledNavigation=true;
          CGRect rect = self.rightView.frame;
          rect.origin.x = x;
          self.rightView.frame = rect;
-         
          if (isClose == NO) {
              self.leftView.transform  = CGAffineTransformMakeScale(1, 1);
-         }else{
+         }else if(!isOpenOtherView){//判断是不是要打开其他页面，如果不是则以缩放的形式关闭侧边栏
              self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
          }
      } completion:^(BOOL finished){
          if (isClose == YES){//侧边栏关闭后移除rightView的tapGestureRecognizer检测器，以便将单击事件监听权交出
-             [self.rightView removeGestureRecognizer:self.tapGestureRecognizer];
+             [self.rightView removeGestureRecognizer:self.rightTapGestureRecognizer];
              [self.centreViewCtor.view setUserInteractionEnabled:YES];
+             [self.leftView removeGestureRecognizer:self.leftTapGestureRecognizer];
          }else{
-             [self.rightView addGestureRecognizer:self.tapGestureRecognizer];
+             [self.rightView addGestureRecognizer:self.rightTapGestureRecognizer];
              [self.centreViewCtor.view setUserInteractionEnabled:NO];
+             [self.leftView addGestureRecognizer:self.leftTapGestureRecognizer];
          }
      } ];
 }
@@ -431,6 +434,15 @@ BOOL const enabledNavigation=true;
         }
     }
     [self onPageSelected:tag finishAnimaiton:YES ];
+}
+#pragma mark UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    if ([touch.view isMemberOfClass:[UIButton class]]) {//单击侧边栏的按钮时关闭侧边栏
+        [self onSwitchWithAnimaiton:true isOpenOtherView:true];
+        return NO; //放过button点击拦截
+    }else{
+        return YES;
+    }
 }
 /**
  * 屏幕旋转时重新计算slideSettingMax的大小
