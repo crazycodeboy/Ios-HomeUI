@@ -256,7 +256,7 @@ BOOL const enabledNavigation=true;
          if (isClose == NO) {
              self.leftView.transform  = CGAffineTransformMakeScale(1, 1);
          }else if(!isOpenOtherView){//判断是不是要打开其他页面，如果不是则以缩放的形式关闭侧边栏
-             self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
+             [self transformLeftViewToDefault];
          }
      } completion:^(BOOL finished){
          if (isClose == YES){//侧边栏关闭后移除rightView的tapGestureRecognizer检测器，以便将单击事件监听权交出
@@ -269,6 +269,15 @@ BOOL const enabledNavigation=true;
              [self.leftView addGestureRecognizer:self.leftTapGestureRecognizer];
          }
      } ];
+    if(isOpenOtherView){//判断是不是要打开其他页面，如果不是则以缩放的形式关闭侧边栏
+        [self performSelector:@selector(transformLeftViewToDefault) withObject:nil afterDelay:0.2];
+    }
+}
+/**
+ * 将leftView(侧边栏)恢复到默认状态
+ */
+-(void)transformLeftViewToDefault{
+    self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
 }
 /**
  * 通过滑动显示和隐藏侧边栏
