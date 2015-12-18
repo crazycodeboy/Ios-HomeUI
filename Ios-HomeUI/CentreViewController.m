@@ -10,9 +10,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.clickIndex = -1;
     self.isFirst = YES;
+   }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+//      UINavigationController *mainNavVC = [[UINavigationController alloc] initWithRootViewController:self];
+    self.rightViewContor2.mainNav=self.navigationController;
+    self.rightViewContor3.mainNav=self.navigationController;
+    self.rightViewContor4.mainNav=self.navigationController;
+    self.rightViewContor1.mainNav=self.navigationController;
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

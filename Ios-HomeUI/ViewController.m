@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "TestViewController.h"
 @interface ViewController ()
 
 @end
@@ -24,4 +24,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)open:(id)sender {
+    TestViewController*vc=[self.storyboard instantiateViewControllerWithIdentifier:@"test"];
+    [self.mainNav pushViewController:vc animated:true ];
+}
 @end

@@ -64,6 +64,16 @@
                     <view key="view" contentMode="scaleToFill" id="DNg-mA-TLH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQ3-vt-1IU">
+                                <rect key="frame" x="238" y="217" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="open:" destination="WqD-te-XMm" eventType="touchUpInside" id="egt-OZ-isn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.84313725490196079" green="1" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -544,8 +554,26 @@
                     <view key="view" contentMode="scaleToFill" id="2bv-EE-ZsC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7x-Px-inp">
+                                <rect key="frame" x="20" y="153" width="46" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cCR-gh-amS"/>
+                                    <constraint firstAttribute="width" constant="46" id="jPX-30-YuH"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="open:" destination="4kR-ZW-Nbr" eventType="touchUpInside" id="y6f-iP-yjE"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.85097775654687968" green="0.735270594551374" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="X7x-Px-inp" secondAttribute="leading" id="B8R-B8-xgR"/>
+                            <constraint firstItem="X7x-Px-inp" firstAttribute="top" secondItem="EKi-au-pvs" secondAttribute="bottom" constant="133" id="teW-ja-Ocx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqw-Po-5hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -570,6 +598,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NB5-AL-EQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-541" y="-2827"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="R88-gn-00F">
+            <objects>
+                <viewController storyboardIdentifier="test" id="x14-zQ-DMn" customClass="TestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lvL-hW-vzh"/>
+                        <viewControllerLayoutGuide type="bottom" id="DCe-mH-gMD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jFr-4f-bB9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="teg-5f-F3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115" y="-2858"/>
         </scene>
     </scenes>
     <resources>

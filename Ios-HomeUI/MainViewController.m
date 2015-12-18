@@ -37,10 +37,12 @@
 @synthesize rightView;
 @synthesize centreViewCtor;
 @synthesize menuViewCtor;
-
+//是否启用NavigationController的标识
+BOOL const enabledNavigation=true;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.isFirst = YES;
     
@@ -74,8 +76,7 @@
     }
 }
 
--(void)initUIView
-{
+-(void)initUIView{
     self.slideChangeSpeed =800;
     CGSize size= [[UIScreen mainScreen] bounds].size;
     self.slideSettingMax=(size.width<size.height? size.width:size.height)-180;
@@ -87,16 +88,22 @@
     self.slideAlpha = 0.1;
     
     UIStoryboard*mainSb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    centreViewCtor=[mainSb instantiateViewControllerWithIdentifier:@"sb_CentreView"];
-    self.centreViewCtor.mainViewContor = self;
-    //将centerView及对应的controller添加到rightView中
-    [self.rightView addSubview:centreViewCtor.view];
-    [self addChildViewController:centreViewCtor];
     menuViewCtor =[mainSb instantiateViewControllerWithIdentifier:@"sb_menuView"];
-    
     //将菜单视图添加到leftView中
     [self.leftView addSubview:self.menuViewCtor.view];
     self.leftView.transform  = CGAffineTransformMakeScale(self.slideSettingTransform_x, self.slideSettingTransform_y);
+    
+    centreViewCtor=[mainSb instantiateViewControllerWithIdentifier:@"sb_CentreView"];
+    self.centreViewCtor.mainViewContor = self;
+    if (enabledNavigation) {
+        UINavigationController*centerNav= [[UINavigationController alloc] initWithRootViewController:centreViewCtor];
+        //将centerView及对应的controller添加到rightView中
+        [self.rightView addSubview:centerNav.view];
+        self.menuViewCtor.mainNav=centerNav;
+    }else{
+        //将centerView及对应的controller添加到rightView中
+        [self.rightView addSubview:centreViewCtor.view];
+    }
     self.rightView.alpha = 1;
     
     self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
