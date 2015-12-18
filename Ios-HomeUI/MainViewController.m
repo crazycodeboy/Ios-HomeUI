@@ -102,6 +102,7 @@ BOOL const enabledNavigation=true;
         //将centerView及对应的controller添加到rightView中
         [self.rightView addSubview:centerNav.view];
         self.menuViewCtor.mainNav=centerNav;
+        [self.centreViewCtor initNavBar];
     }else{
         //将centerView及对应的controller添加到rightView中
         [self.rightView addSubview:centreViewCtor.view];

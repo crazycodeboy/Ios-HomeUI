@@ -56,7 +56,20 @@
     [self setTabBarSelectedImage:11];
     [self initTabBarIndicator];
 }
-/**
+-(void)initNavBar{
+    UIButton *leftNaviBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftNaviBtn.tag = 3;
+    leftNaviBtn.frame = CGRectMake(0, 0, 44, 44);
+    [leftNaviBtn setImage:[UIImage imageNamed:@"导航菜单.png"] forState:UIControlStateNormal];
+    [leftNaviBtn setImage:[UIImage imageNamed:@"导航菜单-选中.png"] forState:UIControlStateHighlighted];
+    [leftNaviBtn addTarget:self action:@selector(doBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftNaviBtn];
+    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    flexible.width = -15.f;
+    self.navigationItem.title=@"Ios-Home UI";
+    [self.navigationItem setLeftBarButtonItems:@[flexible,leftItem]];
+}
+    /**
  * 初始化TabBar指示器
  **/
 -(void)initTabBarIndicator{

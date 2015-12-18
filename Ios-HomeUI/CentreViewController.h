@@ -32,8 +32,7 @@
 @property(nonatomic,strong)IBOutlet UIButton *rightBtn33;   //tag 33
 @property(nonatomic,strong)IBOutlet UILabel *rightLbl44;
 @property(nonatomic,strong)IBOutlet UIButton *rightBtn44;   //tag 44
-
-
+-(void)initNavBar;
 -(void)initUIView;
 -(void)setTabBarSelectedImage:(int)tag;
 -(IBAction)doBtnAction:(UIButton *)sender;
