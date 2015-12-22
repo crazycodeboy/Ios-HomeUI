@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		98F30A051C2019520066A5C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F30A041C2019520066A5C3 /* main.m */; };
 		98F30A0B1C2019520066A5C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F30A0A1C2019520066A5C3 /* ViewController.m */; };
-		98F30A101C2019520066A5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F30A0F1C2019520066A5C3 /* Assets.xcassets */; };
 		98F30A131C2019520066A5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F30A111C2019520066A5C3 /* LaunchScreen.storyboard */; };
 		98F30A1E1C2019520066A5C3 /* Ios_HomeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F30A1D1C2019520066A5C3 /* Ios_HomeUITests.m */; };
 		98F30A291C2019520066A5C3 /* Ios_HomeUIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F30A281C2019520066A5C3 /* Ios_HomeUIUITests.m */; };
@@ -17,6 +16,7 @@
 		F4E772D11C201A51002D8C33 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772C91C201A51002D8C33 /* MainViewController.m */; };
 		F4E772D21C201A51002D8C33 /* CentreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CB1C201A51002D8C33 /* CentreViewController.m */; };
 		F4E772D31C201A51002D8C33 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E772CD1C201A51002D8C33 /* MenuViewController.m */; };
+		F4F07D051C28DECC002BF5AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F07D041C28DECC002BF5AF /* Assets.xcassets */; };
 		F4FA6B661C22D4E200EBAF55 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FA6B651C22D4E200EBAF55 /* TestViewController.m */; };
 		F4FA6B681C22DFC900EBAF55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FA6B671C22DFC900EBAF55 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -43,7 +43,6 @@
 		98F30A041C2019520066A5C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		98F30A091C2019520066A5C3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		98F30A0A1C2019520066A5C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		98F30A0F1C2019520066A5C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F30A121C2019520066A5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F30A141C2019520066A5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F30A191C2019520066A5C3 /* Ios-HomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ios-HomeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +59,7 @@
 		F4E772CB1C201A51002D8C33 /* CentreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentreViewController.m; sourceTree = "<group>"; };
 		F4E772CC1C201A51002D8C33 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		F4E772CD1C201A51002D8C33 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		F4F07D041C28DECC002BF5AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4FA6B641C22D4E200EBAF55 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F4FA6B651C22D4E200EBAF55 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F4FA6B671C22DFC900EBAF55 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -121,11 +121,11 @@
 				F4E772CD1C201A51002D8C33 /* MenuViewController.m */,
 				98F30A091C2019520066A5C3 /* ViewController.h */,
 				98F30A0A1C2019520066A5C3 /* ViewController.m */,
-				F4FA6B671C22DFC900EBAF55 /* Main.storyboard */,
-				98F30A0F1C2019520066A5C3 /* Assets.xcassets */,
-				98F30A031C2019520066A5C3 /* Supporting Files */,
 				F4FA6B641C22D4E200EBAF55 /* TestViewController.h */,
 				F4FA6B651C22D4E200EBAF55 /* TestViewController.m */,
+				F4FA6B671C22DFC900EBAF55 /* Main.storyboard */,
+				F4F07D041C28DECC002BF5AF /* Assets.xcassets */,
+				98F30A031C2019520066A5C3 /* Supporting Files */,
 			);
 			path = "Ios-HomeUI";
 			sourceTree = "<group>";
@@ -267,8 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FA6B681C22DFC900EBAF55 /* Main.storyboard in Resources */,
+				F4F07D051C28DECC002BF5AF /* Assets.xcassets in Resources */,
 				98F30A131C2019520066A5C3 /* LaunchScreen.storyboard in Resources */,
-				98F30A101C2019520066A5C3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
