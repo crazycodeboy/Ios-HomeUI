@@ -461,6 +461,8 @@ BOOL const enabledNavigation=true;
     [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
     CGSize size= [[UIScreen mainScreen] bounds].size;
     self.slideSettingMax=(size.width<size.height? size.width:size.height)-180;
+    [self.centreViewCtor.navigationController.view removeFromSuperview];
+    [self.rightView addSubview:self.centreViewCtor.navigationController.view];
 }
 @end
 
